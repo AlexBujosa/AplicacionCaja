@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using IntegracionAplicacion;
 
 namespace AplicacionCaja
 {
@@ -27,6 +28,8 @@ namespace AplicacionCaja
             if (textBox1.TextLength == 4 && int.TryParse(textBox1.Text, out vr))
             {
                 pin = int.Parse(textBox1.Text);
+                Integracion ASM = new Integracion();
+                ASM.Autenticacion(usuario, clave, pin);
             }
             else
             {

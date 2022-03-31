@@ -1,28 +1,28 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.Services;
-using System.Data;
-namespace Integracion
+
+namespace IntegracionAplicacion
 {
     /// <summary>
-    /// Descripción breve de IntegracionASMX
+    /// Summary description for Integracion
     /// </summary>
-    [WebService(Namespace = "http://intec.edu.do/")]
+    [WebService(Namespace = "http://tempuri.org/")]
     [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
     [System.ComponentModel.ToolboxItem(false)]
-    // Para permitir que se llame a este servicio web desde un script, usando ASP.NET AJAX, quite la marca de comentario de la línea siguiente. 
+    // To allow this Web Service to be called from script, using ASP.NET AJAX, uncomment the following line. 
     // [System.Web.Script.Services.ScriptService]
-    public class IntegracionASMX : System.Web.Services.WebService
+    public class Integracion : System.Web.Services.WebService
     {
-        
+
         [WebMethod]
         public string HelloWorld()
         {
             return "Hello World";
         }
-
         [WebMethod]
         public DataSet Autenticacion(string usuario, string contraseña, int pin)
         {
