@@ -18,11 +18,11 @@ namespace Integracion
     {
 
         [WebMethod]
-        public DataTable Autenticacion(//args)
+        public DataTable Autenticacion(string usuario, string contraseña, int pin)
         {
 
             DataTable auth = new DataTable();
-            auth = Autenticacion(//args) //autenticacion del core, que ejecutará el select
+            auth = Autenticacion(string usuario, string contraseña, int pin) //autenticacion del core, que ejecutará el select
             return auth;
         }
     }
