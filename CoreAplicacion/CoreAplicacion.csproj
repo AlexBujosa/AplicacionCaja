@@ -76,6 +76,7 @@
     <Compile Include="CapaServicio\hacerPagos.cs" />
     <Compile Include="CapaServicio\recargas.cs" />
     <Compile Include="CapaServicio\retiro.cs" />
+    <Compile Include="Controlador.cs" />
     <Compile Include="Core.asmx.cs">
       <DependentUpon>Core.asmx</DependentUpon>
       <SubType>Component</SubType>
