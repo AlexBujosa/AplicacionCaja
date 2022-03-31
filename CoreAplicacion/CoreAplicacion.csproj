@@ -7,16 +7,16 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{F0A49CF8-EBFB-4BAC-B1A0-E6C8040C39BE}</ProjectGuid>
+    <ProjectGuid>{7FBDF840-90C2-477A-8A08-777E63D5E45E}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>IntegracionAplicacion</RootNamespace>
-    <AssemblyName>IntegracionAplicacion</AssemblyName>
+    <RootNamespace>CoreAplicacion</RootNamespace>
+    <AssemblyName>CoreAplicacion</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
-    <IISExpressSSLPort>44365</IISExpressSSLPort>
+    <IISExpressSSLPort>44328</IISExpressSSLPort>
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
@@ -67,12 +67,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Integracion.asmx" />
+    <Content Include="Core.asmx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Integracion.asmx.cs">
-      <DependentUpon>Integracion.asmx</DependentUpon>
+    <Compile Include="CapaServicio\Autenticacion.cs" />
+    <Compile Include="CapaServicio\Deposito.cs" />
+    <Compile Include="CapaServicio\hacerPagos.cs" />
+    <Compile Include="CapaServicio\recargas.cs" />
+    <Compile Include="CapaServicio\retiro.cs" />
+    <Compile Include="Core.asmx.cs">
+      <DependentUpon>Core.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -86,12 +91,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\CoreAplicacion\CoreAplicacion.csproj">
-      <Project>{7fbdf840-90c2-477a-8a08-777e63d5e45e}</Project>
-      <Name>CoreAplicacion</Name>
-    </ProjectReference>
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
@@ -105,9 +105,9 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>61503</DevelopmentServerPort>
+          <DevelopmentServerPort>61708</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>https://localhost:44365/</IISUrl>
+          <IISUrl>https://localhost:44328/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

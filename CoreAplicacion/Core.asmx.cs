@@ -4,21 +4,20 @@ using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.Services;
-using CoreAplicacion;
 
-namespace IntegracionAplicacion
+namespace CoreAplicacion
 {
     /// <summary>
-    /// Summary description for Integracion
+    /// Summary description for Core
     /// </summary>
     [WebService(Namespace = "http://tempuri.org/")]
     [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
     [System.ComponentModel.ToolboxItem(false)]
     // To allow this Web Service to be called from script, using ASP.NET AJAX, uncomment the following line. 
     // [System.Web.Script.Services.ScriptService]
-    public class Integracion : System.Web.Services.WebService
+    public class Core : System.Web.Services.WebService
     {
-        Core core = new Core();
+
         [WebMethod]
         public string HelloWorld()
         {
@@ -27,7 +26,9 @@ namespace IntegracionAplicacion
         [WebMethod]
         public DataSet Autenticacion(string usuario, string contraseña, int pin)
         {
-            DataSet auth = core.Autenticacion(usuario, contraseña, pin);
+
+            DataSet auth = new DataSet();
+
             //auth = Autenticacion(string usuario, string contraseña, int pin); //autenticacion del core, que ejecutará el select
             return auth;
         }
