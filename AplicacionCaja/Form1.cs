@@ -27,6 +27,8 @@ namespace AplicacionCaja
         private void Form1_Load(object sender, EventArgs e)
         {
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            General general = new General();
+            general.Show();
         }
 
         private void button1_Click(object sender, EventArgs e)

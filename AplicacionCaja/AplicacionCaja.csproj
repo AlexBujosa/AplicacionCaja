@@ -53,6 +53,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="General.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="General.Designer.cs">
+      <DependentUpon>General.cs</DependentUpon>
+    </Compile>
     <Compile Include="ModelosPrincipales\CLIENTE.cs" />
     <Compile Include="ModelosPrincipales\NOCUENTA.cs" />
     <Compile Include="Modelos\Cliente.cs" />
@@ -71,6 +77,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="General.resx">
+      <DependentUpon>General.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pin.resx">
       <DependentUpon>Pin.cs</DependentUpon>
