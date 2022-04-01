@@ -12,6 +12,7 @@ namespace AplicacionCaja
 {
     public partial class General : Form
     {
+        public DataSet Authentication;
         public General()
         {
             InitializeComponent();
@@ -20,6 +21,14 @@ namespace AplicacionCaja
         private void timer1_Tick(object sender, EventArgs e)
         {
             label1.Text = "Hora: " + DateTime.Now.ToString();
+        }
+        public void Enviar(DataSet Auth)
+        {
+            Authentication = Auth;
+        }
+        private void General_Load(object sender, EventArgs e)
+        {
+            label3.Text = "Bienvenido " + Authentication.Tables[1].Rows[0][2].ToString();
         }
     }
 }

@@ -27,10 +27,8 @@ namespace CoreAplicacion
         [WebMethod]
         public DataSet Autenticacion(string usuario, string contraseña, int pin)
         {
-
-            DataSet auth = new DataSet();
             Autenticacion autenticacion = new Autenticacion();
-            auth = autenticacion.Autenticarse(usuario, contraseña, pin);
+            DataSet auth = autenticacion.Autenticarse(usuario, contraseña, pin);
             return auth;
         }
     }

@@ -31,7 +31,19 @@ namespace AplicacionCaja
                 Integracion ASM = new Integracion();
                 DataSet Auth = new DataSet();
                 Auth = ASM.Autenticacion(usuario, clave, pin);
-
+                if (Auth.Tables[2].Rows.Count > 0)
+                {
+                    General general = new General();
+                    general.Enviar(Auth);
+                    general.Show();
+                    this.Dispose();
+                }
+                else
+                {
+                    MessageBox.Show("No existe ese usuario. Vuelve a intentarlo");
+                    Form.Show();
+                    this.Dispose();
+                }
             }
             else
             {

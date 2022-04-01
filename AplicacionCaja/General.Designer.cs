@@ -73,6 +73,7 @@ namespace AplicacionCaja
             this.MaximizeBox = false;
             this.Name = "General";
             this.Text = "General";
+            this.Load += new System.EventHandler(this.General_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
