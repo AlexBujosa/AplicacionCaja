@@ -10,7 +10,7 @@ namespace CoreAplicacion
     {
         public string ObtenerConexion()
         {
-            string connection = ConfigurationManager.ConnectionStrings["cn"].ConnectionString;
+            string connection = @"Data Source=(LocalDB)\MSSQLLocalDB;Initial Catalog=NationalBank;Integrated Security=True";
             return connection;
         }
     }

@@ -9,21 +9,25 @@ namespace CoreAplicacion.CapaServicio
     public class Autenticacion
     {
         public string ConnectionStrings;
-        SqlConnection connection;
+        public SqlConnection Connection;
         SqlCommand sqlCommand;
         public DataSet Autenticarse(string Usuario, string Contraseña, int Pin)
         {
+            Connection = new SqlConnection();
             Controlador controlador = new Controlador();
             ConnectionStrings = controlador.ObtenerConexion();
-            connection.ConnectionString = ConnectionStrings;
-            connection.Open();
-            SqlDataReader reader = Autenticar(Usuario, Contraseña, Pin);
+            Connection.ConnectionString = ConnectionStrings;
+            Connection.Open();
             int ID_Cliente = 0;
+            SqlDataReader reader = Autenticar(Usuario, Contraseña, Pin);
+            
 
-            if (reader.Read())
+            if (reader.HasRows)
             {
+                reader.Read();
                 ID_Cliente = int.Parse(reader["ID_Cliente"].ToString());
             }
+            reader.Close();
             DataSet Auth = TodoslosDatosCliente(ID_Cliente);
             return Auth;
         }
@@ -34,7 +38,7 @@ namespace CoreAplicacion.CapaServicio
             sqlCommand.CommandText = "ppGetAll";
             sqlCommand.Parameters.AddWithValue("@ID_Cliente", ID_Cliente);
             sqlCommand.CommandType = System.Data.CommandType.StoredProcedure;
-            sqlCommand.Connection = connection;
+            sqlCommand.Connection = Connection;
             var da = new SqlDataAdapter(sqlCommand);
             da.Fill(Auth);
             return Auth;
@@ -47,7 +51,7 @@ namespace CoreAplicacion.CapaServicio
             sqlCommand.Parameters.AddWithValue("@Contra", Contraseña) ;
             sqlCommand.Parameters.AddWithValue("@Pin", Pin);
             sqlCommand.CommandType = System.Data.CommandType.StoredProcedure;
-            sqlCommand.Connection = connection;
+            sqlCommand.Connection = Connection;
             SqlDataReader datareader = sqlCommand.ExecuteReader();
             return datareader;
         }
