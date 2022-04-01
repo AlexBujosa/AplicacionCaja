@@ -29,7 +29,7 @@ namespace CoreAplicacion
 
             DataSet auth = new DataSet();
 
-            //auth = Autenticacion(string usuario, string contraseña, int pin); //autenticacion del core, que ejecutará el select
+
             return auth;
         }
     }
