@@ -28,7 +28,6 @@ namespace IntegracionAplicacion
         public DataSet Autenticacion(string usuario, string contraseña, int pin)
         {
             DataSet auth = core.Autenticacion(usuario, contraseña, pin);
-            //auth = Autenticacion(string usuario, string contraseña, int pin); //autenticacion del core, que ejecutará el select
             return auth;
         }
     }

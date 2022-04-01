@@ -10,7 +10,8 @@ namespace CoreAplicacion
     {
         public string ObtenerConexion()
         {
-            return ConfigurationManager.ConnectionStrings["cn"].ConnectionString;
+            string connection = ConfigurationManager.ConnectionStrings["cn"].ConnectionString;
+            return connection;
         }
     }
 }

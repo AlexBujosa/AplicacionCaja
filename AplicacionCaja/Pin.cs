@@ -29,7 +29,9 @@ namespace AplicacionCaja
             {
                 pin = int.Parse(textBox1.Text);
                 Integracion ASM = new Integracion();
-                ASM.Autenticacion(usuario, clave, pin);
+                DataSet Auth = new DataSet();
+                Auth = ASM.Autenticacion(usuario, clave, pin);
+
             }
             else
             {

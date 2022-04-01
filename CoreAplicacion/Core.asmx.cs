@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CoreAplicacion.CapaServicio;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -28,8 +29,8 @@ namespace CoreAplicacion
         {
 
             DataSet auth = new DataSet();
-
-            //auth = Autenticacion(string usuario, string contraseña, int pin); //autenticacion del core, que ejecutará el select
+            Autenticacion autenticacion = new Autenticacion();
+            auth = autenticacion.Autenticarse(usuario, contraseña, pin);
             return auth;
         }
     }
