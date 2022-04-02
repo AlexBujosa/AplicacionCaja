@@ -35,6 +35,7 @@ namespace AplicacionCaja
                 {
                     General general = new General();
                     general.Enviar(Auth);
+                    general.AgregarBotones();
                     general.Show();
                     this.Dispose();
                 }
