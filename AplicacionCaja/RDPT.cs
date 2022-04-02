@@ -86,5 +86,12 @@ namespace AplicacionCaja
         {
 
         }
+
+        private void CerrarSesion_Click(object sender, EventArgs e)
+        {
+            CerrarSesion sesion = new CerrarSesion();
+            sesion.EnviarDatos(this);
+            sesion.Show();
+        }
     }
 }

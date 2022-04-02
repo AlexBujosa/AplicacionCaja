@@ -73,6 +73,7 @@ namespace AplicacionCaja
             this.CerrarSesion.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.CerrarSesion.TabIndex = 18;
             this.CerrarSesion.TabStop = false;
+            this.CerrarSesion.Click += new System.EventHandler(this.CerrarSesion_Click);
             // 
             // General
             // 
@@ -88,6 +89,7 @@ namespace AplicacionCaja
             this.MaximizeBox = false;
             this.Name = "General";
             this.Text = "General";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.General_FormClosing);
             this.Load += new System.EventHandler(this.General_Load);
             ((System.ComponentModel.ISupportInitialize)(this.CerrarSesion)).EndInit();
             this.ResumeLayout(false);

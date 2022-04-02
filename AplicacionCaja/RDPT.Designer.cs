@@ -200,6 +200,7 @@ namespace AplicacionCaja
             this.CerrarSesion.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.CerrarSesion.TabIndex = 17;
             this.CerrarSesion.TabStop = false;
+            this.CerrarSesion.Click += new System.EventHandler(this.CerrarSesion_Click);
             // 
             // RDPT
             // 

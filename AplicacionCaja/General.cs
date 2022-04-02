@@ -102,5 +102,17 @@ namespace AplicacionCaja
             rdpt.EnviarData(this, ID_TipoCuenta[3], NoCuenta[3], Authentication, Nombres, Monto[3]);
             rdpt.Show();
         }
+
+        private void CerrarSesion_Click(object sender, EventArgs e)
+        {
+            CerrarSesion sesion = new CerrarSesion();
+            sesion.EnviarDatos(this);
+            sesion.Show();
+        }
+
+        private void General_FormClosing(object sender, FormClosingEventArgs e)
+        {
+
+        }
     }
 }
