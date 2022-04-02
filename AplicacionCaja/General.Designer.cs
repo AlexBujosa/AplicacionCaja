@@ -33,6 +33,8 @@ namespace AplicacionCaja
             this.label3 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.label1 = new System.Windows.Forms.Label();
+            this.CerrarSesion = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.CerrarSesion)).BeginInit();
             this.SuspendLayout();
             // 
             // label3
@@ -40,7 +42,7 @@ namespace AplicacionCaja
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(191, 82);
+            this.label3.Location = new System.Drawing.Point(138, 121);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(182, 37);
             this.label3.TabIndex = 5;
@@ -56,11 +58,21 @@ namespace AplicacionCaja
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(714, 29);
+            this.label1.Location = new System.Drawing.Point(643, 87);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(52, 20);
             this.label1.TabIndex = 6;
             this.label1.Text = "Hora: ";
+            // 
+            // CerrarSesion
+            // 
+            this.CerrarSesion.Image = global::AplicacionCaja.Properties.Resources.cerrar_sesion;
+            this.CerrarSesion.Location = new System.Drawing.Point(863, 1);
+            this.CerrarSesion.Name = "CerrarSesion";
+            this.CerrarSesion.Size = new System.Drawing.Size(80, 72);
+            this.CerrarSesion.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.CerrarSesion.TabIndex = 18;
+            this.CerrarSesion.TabStop = false;
             // 
             // General
             // 
@@ -69,6 +81,7 @@ namespace AplicacionCaja
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(120)))), ((int)(((byte)(142)))));
             this.ClientSize = new System.Drawing.Size(955, 623);
+            this.Controls.Add(this.CerrarSesion);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label3);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -76,6 +89,7 @@ namespace AplicacionCaja
             this.Name = "General";
             this.Text = "General";
             this.Load += new System.EventHandler(this.General_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.CerrarSesion)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -86,5 +100,6 @@ namespace AplicacionCaja
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.PictureBox CerrarSesion;
     }
 }

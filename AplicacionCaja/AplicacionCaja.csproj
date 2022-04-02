@@ -133,5 +133,23 @@
   <ItemGroup>
     <None Include="Resources\white.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Salir.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\salir7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\salir8.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\salir9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\salir10.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cerrar-sesion.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
