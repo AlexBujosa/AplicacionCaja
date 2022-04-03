@@ -78,28 +78,28 @@ namespace AplicacionCaja
         {
             this.Visible = false;
             RDPT rdpt = new RDPT();
-            rdpt.EnviarData(this, ID_TipoCuenta[0], NoCuenta[0], Authentication,Nombres, Monto[0]);
+            rdpt.EnviarDatos(this, ID_TipoCuenta[0], NoCuenta[0], Authentication,Nombres, Monto[0]);
             rdpt.Show();
         }
         private void button2_Click(object sender, EventArgs e)
         {
             this.Visible = false;
             RDPT rdpt = new RDPT();
-            rdpt.EnviarData(this, ID_TipoCuenta[1], NoCuenta[1], Authentication, Nombres, Monto[1]);
+            rdpt.EnviarDatos(this, ID_TipoCuenta[1], NoCuenta[1], Authentication, Nombres, Monto[1]);
             rdpt.Show();
         }
         private void button3_Click(object sender, EventArgs e)
         {
             this.Visible = false;
             RDPT rdpt = new RDPT();
-            rdpt.EnviarData(this, ID_TipoCuenta[2], NoCuenta[2], Authentication, Nombres, Monto[2]);
+            rdpt.EnviarDatos(this, ID_TipoCuenta[2], NoCuenta[2], Authentication, Nombres, Monto[2]);
             rdpt.Show();
         }
         private void button4_Click(object sender, EventArgs e)
         {
             this.Visible = false;
             RDPT rdpt = new RDPT();
-            rdpt.EnviarData(this, ID_TipoCuenta[3], NoCuenta[3], Authentication, Nombres, Monto[3]);
+            rdpt.EnviarDatos(this, ID_TipoCuenta[3], NoCuenta[3], Authentication, Nombres, Monto[3]);
             rdpt.Show();
         }
 

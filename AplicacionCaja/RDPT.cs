@@ -22,7 +22,7 @@ namespace AplicacionCaja
         {
             InitializeComponent();
         }
-        public void EnviarData(General general, int id_TipoCuenta, int noCuenta, DataSet auth, string nombres, decimal monto)
+        public void EnviarDatos(General general, int id_TipoCuenta, int noCuenta, DataSet auth, string nombres, decimal monto)
         {
             General = general;
             ID_TipoCuenta = id_TipoCuenta;
@@ -69,12 +69,18 @@ namespace AplicacionCaja
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            Retiro retiro = new Retiro();
+            this.Visible = false;
+            retiro.EnviarDatos(this, ID_TipoCuenta, NoCuenta, Authentication, Nombres, Monto);
+            retiro.Show();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+            Deposito deposito = new Deposito();
+            this.Visible = false;
+            deposito.EnviarDatos(this, ID_TipoCuenta, NoCuenta, Authentication, Nombres, Monto);
+            deposito.Show();
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -92,6 +98,12 @@ namespace AplicacionCaja
             CerrarSesion sesion = new CerrarSesion();
             sesion.EnviarDatos(this);
             sesion.Show();
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            General.Show();
+            this.Dispose();
         }
     }
 }

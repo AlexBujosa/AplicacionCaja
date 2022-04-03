@@ -30,5 +30,11 @@ namespace IntegracionAplicacion
             DataSet auth = core.Autenticacion(usuario, contraseña, pin);
             return auth;
         }
+        [WebMethod]
+        public DataRow Transaccion(int ID_TipoTransaccion, int DbCr, string Comentario, int NoCuenta, decimal Monto)
+        {
+            DataRow row = new DataRow();
+            return row;
+        }
     }
 }
