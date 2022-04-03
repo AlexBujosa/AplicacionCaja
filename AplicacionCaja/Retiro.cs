@@ -45,40 +45,58 @@ namespace AplicacionCaja
         {
             montoRetiro = 500;
             Integracion ASM = new Integracion();
-            ASM.Transaccion(ID_TipoTransaccion, DbCr, Comentario, NoCuenta, montoRetiro);
+            if (montoRetiro > decimal.Parse(row[1].ToString()))
+                MessageBox.Show("No tiene dinero suficiente para retirar");
+            else
+                ASM.Transaccion(ID_TipoTransaccion, DbCr, Comentario, NoCuenta, montoRetiro);
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             montoRetiro = 1000;
             Integracion ASM = new Integracion();
-            ASM.Transaccion(ID_TipoTransaccion, DbCr, Comentario, NoCuenta, montoRetiro);
+            if (montoRetiro > decimal.Parse(row[1].ToString()))
+                MessageBox.Show("No tiene dinero suficiente para retirar");
+            else
+                ASM.Transaccion(ID_TipoTransaccion, DbCr, Comentario, NoCuenta, montoRetiro);
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             montoRetiro = 1500;
             Integracion ASM = new Integracion();
-            ASM.Transaccion(ID_TipoTransaccion, DbCr, Comentario, NoCuenta, montoRetiro);
+            if (montoRetiro > decimal.Parse(row[1].ToString()))
+                MessageBox.Show("No tiene dinero suficiente para retirar");
+            else
+                ASM.Transaccion(ID_TipoTransaccion, DbCr, Comentario, NoCuenta, montoRetiro);
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
             montoRetiro = 2000;
             Integracion ASM = new Integracion();
-            ASM.Transaccion(ID_TipoTransaccion, DbCr, Comentario, NoCuenta, montoRetiro);
+            if (montoRetiro > decimal.Parse(row[1].ToString()))
+                MessageBox.Show("No tiene dinero suficiente para retirar");
+            else
+                ASM.Transaccion(ID_TipoTransaccion, DbCr, Comentario, NoCuenta, montoRetiro);
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
             montoRetiro = 2500;
             Integracion ASM = new Integracion();
-            ASM.Transaccion(ID_TipoTransaccion, DbCr, Comentario, NoCuenta, montoRetiro);
+            if (montoRetiro > decimal.Parse(row[1].ToString()))
+                MessageBox.Show("No tiene dinero suficiente para retirar");
+            else
+                ASM.Transaccion(ID_TipoTransaccion, DbCr, Comentario, NoCuenta, montoRetiro);
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
-
+            this.Enabled = false;
+            Monto monto = new Monto();
+            monto.EnviarDatos(this,ID_TipoTransaccion, DbCr, Comentario, NoCuenta, row, Authentication);
+            monto.Show();
         }
 
         private void Retiro_Load(object sender, EventArgs e)
@@ -107,6 +125,11 @@ namespace AplicacionCaja
         {
             RDPT.Show();
             this.Dispose();
+        }
+        public void RecibirActualizacion(DataSet Auth, DataRow Row)
+        {
+            Authentication = Auth;
+            row = Row;
         }
     }
 }

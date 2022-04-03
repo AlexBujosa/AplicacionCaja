@@ -31,10 +31,10 @@ namespace IntegracionAplicacion
             return auth;
         }
         [WebMethod]
-        public DataRow Transaccion(int ID_TipoTransaccion, int DbCr, string Comentario, int NoCuenta, decimal Monto)
+        public DataSet Transaccion(int ID_TipoTransaccion, int DbCr, string Comentario, int NoCuenta, decimal Monto)
         {
-            DataRow row = new DataRow();
-            return row;
+            DataSet dataset = null;
+            return dataset;
         }
     }
 }

@@ -101,7 +101,15 @@ namespace AplicacionCaja
 
         private void button6_Click(object sender, EventArgs e)
         {
-
+            this.Enabled = false;
+            Monto monto = new Monto();
+            monto.EnviarDatos(this, ID_TipoTransaccion, DbCr, Comentario, NoCuenta, row, Authentication);
+            monto.Show();
+        }
+        public void RecibirActualizacion(DataSet Auth, DataRow Row)
+        {
+            Authentication = Auth;
+            row = Row;
         }
     }
 }

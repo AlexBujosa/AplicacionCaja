@@ -81,6 +81,12 @@
     <Compile Include="Modelos\Prestamo.cs" />
     <Compile Include="Modelos\Transacciones.cs" />
     <Compile Include="Modelos\usuario.cs" />
+    <Compile Include="Monto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Monto.Designer.cs">
+      <DependentUpon>Monto.cs</DependentUpon>
+    </Compile>
     <Compile Include="Pin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -112,6 +118,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="General.resx">
       <DependentUpon>General.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Monto.resx">
+      <DependentUpon>Monto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pin.resx">
       <DependentUpon>Pin.cs</DependentUpon>
