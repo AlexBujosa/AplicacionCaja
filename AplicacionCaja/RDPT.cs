@@ -78,10 +78,10 @@ namespace AplicacionCaja
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Deposito deposito = new Deposito();
+            Depositos depositos = new Depositos();
             this.Visible = false;
-            deposito.EnviarDatos(this, ID_TipoCuenta, NoCuenta, Authentication, Nombres, Monto);
-            deposito.Show();
+            depositos.EnviarDatos(this, ID_TipoCuenta, NoCuenta, Authentication, Nombres, Monto);
+            depositos.Show();
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -96,6 +96,7 @@ namespace AplicacionCaja
 
         private void CerrarSesion_Click(object sender, EventArgs e)
         {
+            General.Dispose();
             CerrarSesion sesion = new CerrarSesion();
             sesion.EnviarDatos(this);
             sesion.Show();

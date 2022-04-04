@@ -13,7 +13,7 @@ namespace AplicacionCaja
 {
     public partial class Deposito : Form
     {
-        public RDPT RDPT;
+        public Depositos Depositos;
         public int ID_TipoCuenta;
         public int NoCuenta;
         public DataSet Authentication;
@@ -31,6 +31,7 @@ namespace AplicacionCaja
 
         private void CerrarSesion_Click(object sender, EventArgs e)
         {
+            Depositos.Dispose();
             CerrarSesion sesion = new CerrarSesion();
             sesion.EnviarDatos(this);
             sesion.Show();
@@ -48,9 +49,9 @@ namespace AplicacionCaja
             ID_TipoTransaccion = 4;
             Comentario = "Deposito de dinero realizado por " +Nombres;
         }
-        public void EnviarDatos(RDPT rdpt, int id_TipoCuenta, int noCuenta, DataSet auth, string nombres, decimal monto)
+        public void EnviarDatos(Depositos depositos, int id_TipoCuenta, int noCuenta, DataSet auth, string nombres, decimal monto)
         {
-            RDPT = rdpt;
+            Depositos = depositos;
             ID_TipoCuenta = id_TipoCuenta;
             NoCuenta = noCuenta;
             Authentication = auth;
@@ -60,8 +61,8 @@ namespace AplicacionCaja
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-            RDPT.RecibirActualizacion(Authentication, Monto);
-            RDPT.Show();
+            Depositos.RecibirActualizacion(Authentication, Monto);
+            Depositos.Show();
             this.Dispose();
         }
 
