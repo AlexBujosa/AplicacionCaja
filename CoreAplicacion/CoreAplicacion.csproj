@@ -72,10 +72,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CapaServicio\Autenticacion.cs" />
-    <Compile Include="CapaServicio\Deposito.cs" />
     <Compile Include="CapaServicio\hacerPagos.cs" />
     <Compile Include="CapaServicio\recargas.cs" />
-    <Compile Include="CapaServicio\retiro.cs" />
+    <Compile Include="CapaServicio\Transaccion.cs" />
     <Compile Include="Controlador.cs" />
     <Compile Include="Core.asmx.cs">
       <DependentUpon>Core.asmx</DependentUpon>

@@ -34,7 +34,9 @@ namespace CoreAplicacion
         [WebMethod]
         public DataSet Transaccion(int ID_TipoTransaccion, int DbCr, string Comentario, int NoCuenta, decimal Monto)
         {
-            DataSet dataset = null;
+            Transaccion transaccion = new Transaccion();
+            DataSet dataset;
+            dataset = transaccion.transaccion(ID_TipoTransaccion, DbCr, Comentario, NoCuenta, Monto);
             return dataset;
         }
     }

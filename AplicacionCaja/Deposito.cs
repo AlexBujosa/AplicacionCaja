@@ -60,6 +60,7 @@ namespace AplicacionCaja
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
+            RDPT.RecibirActualizacion(Authentication, Monto);
             RDPT.Show();
             this.Dispose();
         }
@@ -68,35 +69,40 @@ namespace AplicacionCaja
         {
             montoDeposito = 500;
             Integracion ASM = new Integracion();
-            ASM.Transaccion(ID_TipoTransaccion, DbCr, Comentario, NoCuenta, montoDeposito);
+            DataSet data = ASM.Transaccion(ID_TipoTransaccion, DbCr, Comentario, NoCuenta, montoDeposito);
+            ActualizarAuth(data);
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             montoDeposito = 1000;
             Integracion ASM = new Integracion();
-            ASM.Transaccion(ID_TipoTransaccion, DbCr, Comentario, NoCuenta, montoDeposito);
+            DataSet data = ASM.Transaccion(ID_TipoTransaccion, DbCr, Comentario, NoCuenta, montoDeposito);
+            ActualizarAuth(data);
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             montoDeposito = 1500;
             Integracion ASM = new Integracion();
-            ASM.Transaccion(ID_TipoTransaccion, DbCr, Comentario, NoCuenta, montoDeposito);
+            DataSet data = ASM.Transaccion(ID_TipoTransaccion, DbCr, Comentario, NoCuenta, montoDeposito);
+            ActualizarAuth(data);
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
             montoDeposito = 2000;
             Integracion ASM = new Integracion();
-            ASM.Transaccion(ID_TipoTransaccion, DbCr, Comentario, NoCuenta, montoDeposito);
+            DataSet data = ASM.Transaccion(ID_TipoTransaccion, DbCr, Comentario, NoCuenta, montoDeposito);
+            ActualizarAuth(data);
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
             montoDeposito = 2500;
             Integracion ASM = new Integracion();
-            ASM.Transaccion(ID_TipoTransaccion, DbCr, Comentario, NoCuenta, montoDeposito);
+            DataSet data = ASM.Transaccion(ID_TipoTransaccion, DbCr, Comentario, NoCuenta, montoDeposito);
+            ActualizarAuth(data);
         }
 
         private void button6_Click(object sender, EventArgs e)
@@ -110,6 +116,23 @@ namespace AplicacionCaja
         {
             Authentication = Auth;
             row = Row;
+        }
+        public void ActualizarAuth(DataSet data)
+        {
+            row = data.Tables[0].Rows[0];
+            for (int i = 0; i < Authentication.Tables[0].Rows.Count; i++)
+            {
+                if (int.Parse(Authentication.Tables[0].Rows[i][0].ToString()) == NoCuenta)
+                {
+                    Authentication.Tables[0].Rows[i][0] = row[0];
+                    Authentication.Tables[0].Rows[i][1] = row[1];
+                    Authentication.Tables[0].Rows[i][2] = row[2];
+                    Authentication.Tables[0].Rows[i][2] = row[3];
+                    Authentication.Tables[0].Rows[i][4] = row[4];
+                    Monto = decimal.Parse(row[1].ToString());
+                }
+            }
+            //Authentication.Tables[3].Rows.Add(data.Tables[1].Rows[0]);
         }
     }
 }

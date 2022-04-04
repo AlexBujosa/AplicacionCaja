@@ -29,6 +29,7 @@ namespace CoreAplicacion.CapaServicio
             }
             reader.Close();
             DataSet Auth = TodoslosDatosCliente(ID_Cliente);
+            Connection.Close();
             return Auth;
         }
         public DataSet TodoslosDatosCliente(int ID_Cliente)

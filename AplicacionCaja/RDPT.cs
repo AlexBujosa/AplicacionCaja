@@ -65,6 +65,7 @@ namespace AplicacionCaja
             {
                 label1.Text = "Buenas Noches,";
             }
+            label5.Text = "$ " + Monto.ToString();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -105,9 +106,10 @@ namespace AplicacionCaja
             General.Show();
             this.Dispose();
         }
-        public void RecibirActualizacion(DataSet Auth)
+        public void RecibirActualizacion(DataSet Auth, decimal monto)
         {
             Authentication = Auth;
+            Monto = monto;
         }
     }
 }
