@@ -54,5 +54,10 @@ namespace AplicacionCaja
                 MessageBox.Show("No contiene las combinaciones indicadas en el Usuario o Contraseña(Mayuscula, Minuscula y Numero)");
             }
         }
+
+        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
