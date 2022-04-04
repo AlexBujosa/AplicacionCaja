@@ -55,7 +55,7 @@ namespace AplicacionCaja
                     MessageBox.Show("No tiene dinero suficiente para retirar");
                 else
                 {
-                    ASM.Transaccion(ID_TipoTransaccion, DbCr, Comentario, NoCuenta, monto);
+                    DataSet data = ASM.Transaccion(ID_TipoTransaccion, DbCr, Comentario, NoCuenta, monto);
                     
                 }
                     

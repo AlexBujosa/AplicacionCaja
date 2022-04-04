@@ -33,7 +33,7 @@ namespace IntegracionAplicacion
         [WebMethod]
         public DataSet Transaccion(int ID_TipoTransaccion, int DbCr, string Comentario, int NoCuenta, decimal Monto)
         {
-            DataSet dataset = null;
+            DataSet dataset = core.Transaccion(ID_TipoTransaccion, DbCr, Comentario, NoCuenta, Monto);
             return dataset;
         }
     }

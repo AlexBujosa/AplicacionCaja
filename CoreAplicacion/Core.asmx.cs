@@ -31,5 +31,11 @@ namespace CoreAplicacion
             DataSet auth = autenticacion.Autenticarse(usuario, contraseña, pin);
             return auth;
         }
+        [WebMethod]
+        public DataSet Transaccion(int ID_TipoTransaccion, int DbCr, string Comentario, int NoCuenta, decimal Monto)
+        {
+            DataSet dataset = null;
+            return dataset;
+        }
     }
 }

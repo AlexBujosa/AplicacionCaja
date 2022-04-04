@@ -114,5 +114,9 @@ namespace AplicacionCaja
         {
 
         }
+        public void RecibirActualizacion(DataSet Auth)
+        {
+            Authentication = Auth;
+        }
     }
 }

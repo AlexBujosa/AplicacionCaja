@@ -105,5 +105,9 @@ namespace AplicacionCaja
             General.Show();
             this.Dispose();
         }
+        public void RecibirActualizacion(DataSet Auth)
+        {
+            Authentication = Auth;
+        }
     }
 }
