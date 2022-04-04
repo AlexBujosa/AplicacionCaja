@@ -20,7 +20,6 @@ namespace AplicacionCaja
         private string Comentario;
         private int NoCuenta;
         private DataRow Row;
-        private DataSet Auth;
 
         public Monto()
         {
@@ -34,7 +33,7 @@ namespace AplicacionCaja
             else
                 label3.Text = "Monto a Depositar:";
         }
-        public void EnviarDatos(Form form, int id_TipoTransaccion, int dbCr, string comentario, int noCuenta, DataRow row, DataSet auth)
+        public void EnviarDatos(Form form, int id_TipoTransaccion, int dbCr, string comentario, int noCuenta, DataRow row)
         {
             Form = form;
             ID_TipoTransaccion = id_TipoTransaccion;
@@ -42,7 +41,6 @@ namespace AplicacionCaja
             Comentario = comentario;
             NoCuenta = noCuenta;
             Row = row;
-            Auth = auth;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -53,10 +51,25 @@ namespace AplicacionCaja
                 Integracion ASM = new Integracion();
                 if (monto > decimal.Parse(Row[1].ToString()) && DbCr == 0)
                     MessageBox.Show("No tiene dinero suficiente para retirar");
+                else if (monto < 0)
+                    MessageBox.Show("Error: No montos menores que 0");
                 else
                 {
                     DataSet data = ASM.Transaccion(ID_TipoTransaccion, DbCr, Comentario, NoCuenta, monto);
-                    
+                    if (Form.GetType().ToString() == "AplicacionCaja.Deposito")
+                    {
+                        Deposito deposito = new Deposito();
+                        deposito = (Deposito)Form;
+                        deposito.ActualizarAuth(data);
+                    }
+                    else
+                    {
+                        Retiro retiro = new Retiro();
+                        retiro = (Retiro)Form;
+                        retiro.ActualizarAuth(data);
+                    }
+                    Form.Enabled = true;
+                    this.Dispose();
                 }
                     
             }

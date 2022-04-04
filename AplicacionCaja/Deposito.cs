@@ -109,7 +109,7 @@ namespace AplicacionCaja
         {
             this.Enabled = false;
             Monto monto = new Monto();
-            monto.EnviarDatos(this, ID_TipoTransaccion, DbCr, Comentario, NoCuenta, row, Authentication);
+            monto.EnviarDatos(this, ID_TipoTransaccion, DbCr, Comentario, NoCuenta,row);
             monto.Show();
         }
         public void RecibirActualizacion(DataSet Auth, DataRow Row)
@@ -132,7 +132,12 @@ namespace AplicacionCaja
                     Monto = decimal.Parse(row[1].ToString());
                 }
             }
-            //Authentication.Tables[3].Rows.Add(data.Tables[1].Rows[0]);
+            Authentication.Tables[3].Rows.Add(data.Tables[1].Rows[0].ItemArray);
+            TransaccionProcesada();
+        }
+        public void TransaccionProcesada()
+        {
+            MessageBox.Show("Transaccion Procesada");
         }
     }
 }
