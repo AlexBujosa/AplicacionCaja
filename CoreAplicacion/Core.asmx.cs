@@ -20,11 +20,6 @@ namespace CoreAplicacion
     {
 
         [WebMethod]
-        public string HelloWorld()
-        {
-            return "Hello World";
-        }
-        [WebMethod]
         public DataSet Autenticacion(string usuario, string contraseña, int pin)
         {
             Autenticacion autenticacion = new Autenticacion();

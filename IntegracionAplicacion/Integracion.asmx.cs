@@ -20,11 +20,6 @@ namespace IntegracionAplicacion
     {
         Core core = new Core();
         [WebMethod]
-        public string HelloWorld()
-        {
-            return "Hello World";
-        }
-        [WebMethod]
         public DataSet Autenticacion(string usuario, string contraseña, int pin)
         {
             DataSet auth = core.Autenticacion(usuario, contraseña, pin);
