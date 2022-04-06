@@ -35,6 +35,7 @@ namespace AplicacionCaja
             CerrarSesion sesion = new CerrarSesion();
             sesion.EnviarDatos(this);
             sesion.Show();
+            this.Dispose();
         }
 
         private void Deposito_Load(object sender, EventArgs e)

@@ -23,17 +23,8 @@ namespace CoreAplicacion.CapaServicio
             Connection.Open();
             transaction = Connection.BeginTransaction();
             int completado = InsertarTransaccion(ID_TipoTransaccion, DbCr, Comentario, NoCuenta, Monto);
-            if(completado == 1)
-            {
-                completado = UpdateNoCuenta(NoCuenta, Monto, DbCr);  
-                if(completado == 1)
-                {
-                    DataSet dataSet1 = ConseguirUltimaActualizacion(NoCuenta);
-                    int ID_Transacciones  = int.Parse(dataSet1.Tables[0].Rows[0][0].ToString());
-                    dataSet = ConseguirTBL(NoCuenta, ID_Transacciones);
-                }
-            }
-            
+            dataSet = ActualizarNoCuenta(completado, NoCuenta, Monto, DbCr);
+            transaction.Commit();
             Connection.Close();
             return dataSet;
         }
@@ -51,7 +42,6 @@ namespace CoreAplicacion.CapaServicio
             try
             {
                 respuesta = sqlCommand.ExecuteNonQuery();
-                transaction.Commit();
             }
             catch{
                 transaction.Rollback();
@@ -89,8 +79,17 @@ namespace CoreAplicacion.CapaServicio
             sqlCommand.Parameters.AddWithValue("@NoCuenta", NoCuenta);
             sqlCommand.CommandType = System.Data.CommandType.StoredProcedure;
             sqlCommand.Connection = Connection;
+            sqlCommand.Transaction = transaction;
             var da = new SqlDataAdapter(sqlCommand);
-            da.Fill(dataset);
+            try
+            {
+                da.Fill(dataset);
+            }
+            catch
+            {
+                transaction.Rollback();
+            }
+           
             return dataset;
         }
         public DataSet ConseguirTBL(int NoCuenta, int ID_Transacciones)
@@ -102,9 +101,116 @@ namespace CoreAplicacion.CapaServicio
             sqlCommand.Parameters.AddWithValue("@ID_Transacciones", ID_Transacciones);
             sqlCommand.CommandType = System.Data.CommandType.StoredProcedure;
             sqlCommand.Connection = Connection;
+            sqlCommand.Transaction = transaction;
             var da = new SqlDataAdapter(sqlCommand);
-            da.Fill(dataset);
+            try
+            {
+                da.Fill(dataset);
+            }
+            catch
+            {
+                transaction.Rollback();
+            }
             return dataset;
+        }
+        public DataSet ConseguirTBLNTP(int NoCuenta, int ID_Transacciones)
+        {
+            DataSet dataset = new DataSet();
+            sqlCommand = new SqlCommand();
+            sqlCommand.CommandText = "ppGetTblNTP";
+            sqlCommand.Parameters.AddWithValue("@NoCuenta", NoCuenta);
+            sqlCommand.Parameters.AddWithValue("@ID_Transacciones", ID_Transacciones);
+            sqlCommand.CommandType = System.Data.CommandType.StoredProcedure;
+            sqlCommand.Connection = Connection;
+            sqlCommand.Transaction = transaction;
+            var da = new SqlDataAdapter(sqlCommand);
+            try
+            {
+                da.Fill(dataset);
+            }
+            catch
+            {
+                transaction.Rollback();
+            }
+            return dataset;
+        }
+        public DataSet TransaccionATercero(int NoCuenta, int Entidad, int ID_TipoEntidad, int ID_TipoTransaccion, int DbCr, string Comentario, decimal Monto)
+        {
+            DataSet dataset = new DataSet();
+            Connection = new SqlConnection();
+            Controlador controlador = new Controlador();
+            ConnectionStrings = controlador.ObtenerConexion();
+            Connection.ConnectionString = ConnectionStrings;
+            Connection.Open();
+            transaction = Connection.BeginTransaction();
+            int completado = InsertarTransaccion(ID_TipoTransaccion, DbCr, Comentario, NoCuenta, Monto);
+            if(completado == 1)
+            {
+                if(DbCr == 2)
+                    dataset = ActualizarNoCuentaNTP(completado, Entidad, ID_TipoEntidad, NoCuenta, 0, DbCr);
+                else
+                    dataset = ActualizarNoCuentaNTP(completado, Entidad, ID_TipoEntidad, NoCuenta, Monto, DbCr);
+                completado = InsertarTransaccion(ID_TipoTransaccion, 1, Comentario, Entidad, Monto);
+            }
+            if(completado == 1 && dataset.Tables.Count == 3)
+                ActualizarNoCuentaNTP(completado,NoCuenta, ID_TipoEntidad, Entidad, Monto, 1);
+            transaction.Commit();
+            Connection.Close();
+            return dataset;
+        }
+        public DataSet ActualizarNoCuenta(int completado, int NoCuenta, decimal Monto,int DbCr)
+        {
+            DataSet dataset = new DataSet();
+            if (completado == 1)
+            {
+                completado = UpdateNoCuenta(NoCuenta, Monto, DbCr);
+                if (completado == 1)
+                {
+                    DataSet dataSet1 = ConseguirUltimaActualizacion(NoCuenta);
+                    int ID_Transacciones = int.Parse(dataSet1.Tables[0].Rows[0][0].ToString());
+                    dataset = ConseguirTBL(NoCuenta, ID_Transacciones);
+                }
+            }
+            return dataset;
+        }
+        public DataSet ActualizarNoCuentaNTP(int completado, int Entidad, int ID_TipoEntidad, int NoCuenta, decimal Monto, int DbCr)
+        {
+            DataSet dataset = new DataSet();
+            if (completado == 1)
+            {
+                completado = UpdateNoCuenta(NoCuenta, Monto, DbCr);
+                if (completado == 1)
+                {
+                    DataSet dataSet1 = ConseguirUltimaActualizacion(NoCuenta);
+                    int ID_Transacciones = int.Parse(dataSet1.Tables[0].Rows[0][0].ToString());
+                    completado = InsertPago(NoCuenta, Entidad, ID_TipoEntidad, ID_Transacciones);
+                    if(completado == 1)
+                        dataset = ConseguirTBLNTP(NoCuenta, ID_Transacciones);
+                }
+            }
+            return dataset;
+        }
+        public int InsertPago(int NoCuenta, int Entidad, int ID_TipoEntidad, int ID_Transacciones)
+        {
+            int respuesta  = 0;
+            sqlCommand = new SqlCommand();
+            sqlCommand.CommandText = "ppInsertPago";
+            sqlCommand.Parameters.AddWithValue("@NoCuenta", NoCuenta);
+            sqlCommand.Parameters.AddWithValue("@Entidad", Entidad);
+            sqlCommand.Parameters.AddWithValue("@ID_TipoEntidad", ID_TipoEntidad);
+            sqlCommand.Parameters.AddWithValue("@ID_Transacciones", ID_Transacciones);
+            sqlCommand.CommandType = System.Data.CommandType.StoredProcedure;
+            sqlCommand.Connection = Connection;
+            sqlCommand.Transaction = transaction;
+            try
+            {
+                respuesta = sqlCommand.ExecuteNonQuery();
+            }
+            catch (Exception)
+            {
+                transaction.Rollback();
+            }
+            return respuesta;
         }
     }
 }

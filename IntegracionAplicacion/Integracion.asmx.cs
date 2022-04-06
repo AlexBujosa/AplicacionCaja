@@ -36,5 +36,17 @@ namespace IntegracionAplicacion
             DataSet dataset = core.Transaccion(ID_TipoTransaccion, DbCr, Comentario, NoCuenta, Monto);
             return dataset;
         }
+        [WebMethod]
+        public DataSet ObtenerTodasCuentasDiferentes(int ID_Cliente)
+        {
+            DataSet dataset = core.ObtenerTodasCuentasDiferentes(ID_Cliente);
+            return dataset;
+        }
+        [WebMethod]
+        public DataSet TransaccionATercero(int NoCuenta, int Entidad, int ID_TipoEntidad, int ID_TipoTransaccion, int DbCr, string Comentario, decimal Monto)
+        {
+            DataSet dataset = core.TransaccionATercero(NoCuenta, Entidad, ID_TipoEntidad, ID_TipoTransaccion, DbCr, Comentario, Monto);
+            return dataset;
+        }
     }
 }

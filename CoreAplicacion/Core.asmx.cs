@@ -39,5 +39,19 @@ namespace CoreAplicacion
             dataset = transaccion.transaccion(ID_TipoTransaccion, DbCr, Comentario, NoCuenta, Monto);
             return dataset;
         }
+        [WebMethod]
+        public DataSet ObtenerTodasCuentasDiferentes(int ID_Cliente)
+        {
+            recargas recargas = new recargas();
+            DataSet dataset = recargas.TodasCuentasDiferentes(ID_Cliente);
+            return dataset;
+        }
+        [WebMethod]
+        public DataSet TransaccionATercero(int NoCuenta, int Entidad, int ID_TipoEntidad, int ID_TipoTransaccion, int DbCr, string Comentario, decimal Monto)
+        {
+            Transaccion transaccion = new Transaccion();
+            DataSet dataset = transaccion.TransaccionATercero(NoCuenta, Entidad, ID_TipoEntidad, ID_TipoTransaccion, DbCr, Comentario, Monto);
+            return dataset;
+        }
     }
 }

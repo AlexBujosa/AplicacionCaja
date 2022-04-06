@@ -43,7 +43,10 @@ namespace AplicacionCaja
         }
         private void button2_Click(object sender, EventArgs e)
         {
-
+            DepositoATerceros depositoA = new DepositoATerceros();
+            this.Visible = false;
+            depositoA.EnviarDatos(this, ID_TipoCuenta, NoCuenta, Authentication, Nombres, Monto);
+            depositoA.Show();
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
@@ -55,6 +58,7 @@ namespace AplicacionCaja
 
         private void CerrarSesion_Click(object sender, EventArgs e)
         {
+            RDPT.Dispose();
             CerrarSesion sesion = new CerrarSesion();
             sesion.EnviarDatos(this);
             sesion.Show();
