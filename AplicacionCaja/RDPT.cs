@@ -91,7 +91,10 @@ namespace AplicacionCaja
 
         private void button4_Click(object sender, EventArgs e)
         {
-
+            Transferencia transferencia = new Transferencia();
+            this.Visible = false;
+            transferencia.EnviarDatos(this,ID_TipoCuenta, NoCuenta, Authentication, Nombres, Monto);
+            transferencia.Show();
         }
 
         private void CerrarSesion_Click(object sender, EventArgs e)
