@@ -171,6 +171,7 @@ namespace AplicacionCaja
             this.pictureBox2.TabIndex = 27;
             this.pictureBox2.TabStop = false;
             this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
+            this.pictureBox2.MouseHover += new System.EventHandler(this.pictureBox2_MouseHover);
             // 
             // CerrarSesion
             // 
@@ -182,6 +183,7 @@ namespace AplicacionCaja
             this.CerrarSesion.TabIndex = 29;
             this.CerrarSesion.TabStop = false;
             this.CerrarSesion.Click += new System.EventHandler(this.CerrarSesion_Click);
+            this.CerrarSesion.MouseHover += new System.EventHandler(this.CerrarSesion_MouseHover);
             // 
             // button6
             // 
@@ -197,6 +199,7 @@ namespace AplicacionCaja
             this.button6.Text = "Otro Monto";
             this.button6.UseVisualStyleBackColor = false;
             this.button6.Click += new System.EventHandler(this.button6_Click);
+            this.button6.MouseHover += new System.EventHandler(this.button6_MouseHover);
             // 
             // button5
             // 
@@ -212,6 +215,7 @@ namespace AplicacionCaja
             this.button5.Text = "$2,500";
             this.button5.UseVisualStyleBackColor = false;
             this.button5.Click += new System.EventHandler(this.button5_Click);
+            this.button5.MouseHover += new System.EventHandler(this.button5_MouseHover);
             // 
             // button4
             // 
@@ -227,6 +231,7 @@ namespace AplicacionCaja
             this.button4.Text = "$2,000";
             this.button4.UseVisualStyleBackColor = false;
             this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.button4.MouseHover += new System.EventHandler(this.button4_MouseHover);
             // 
             // button3
             // 
@@ -242,6 +247,7 @@ namespace AplicacionCaja
             this.button3.Text = "$1,500";
             this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.button3.MouseHover += new System.EventHandler(this.button3_MouseHover);
             // 
             // button2
             // 
@@ -257,6 +263,7 @@ namespace AplicacionCaja
             this.button2.Text = "$1,000";
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.button2.MouseHover += new System.EventHandler(this.button2_MouseHover);
             // 
             // button1
             // 
@@ -272,6 +279,7 @@ namespace AplicacionCaja
             this.button1.Text = "$500";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button1.MouseHover += new System.EventHandler(this.button1_MouseHover);
             // 
             // label8
             // 

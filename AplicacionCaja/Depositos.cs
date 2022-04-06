@@ -77,5 +77,25 @@ namespace AplicacionCaja
             Nombres = nombres;
             Monto = monto;
         }
+
+        private void pictureBox2_MouseHover(object sender, EventArgs e)
+        {
+            Cursor.Current = Cursors.Hand;
+        }
+
+        private void CerrarSesion_MouseHover(object sender, EventArgs e)
+        {
+            Cursor.Current = Cursors.Hand;
+        }
+
+        private void button1_MouseHover(object sender, EventArgs e)
+        {
+            Cursor.Current = Cursors.Hand;
+        }
+
+        private void button2_MouseHover(object sender, EventArgs e)
+        {
+            Cursor.Current = Cursors.Hand;
+        }
     }
 }

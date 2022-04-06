@@ -135,6 +135,14 @@ namespace AplicacionCaja
             MessageBox.Show("Transaccion Procesada");
         }
 
+        private void button1_MouseHover(object sender, EventArgs e)
+        {
+            Cursor.Current = Cursors.Hand;
+        }
 
+        private void button2_MouseHover(object sender, EventArgs e)
+        {
+            Cursor.Current = Cursors.Hand;
+        }
     }
 }

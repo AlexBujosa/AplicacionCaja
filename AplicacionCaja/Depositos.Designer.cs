@@ -52,6 +52,7 @@ namespace AplicacionCaja
             this.button1.Text = "Deposito";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button1.MouseHover += new System.EventHandler(this.button1_MouseHover);
             // 
             // button2
             // 
@@ -67,6 +68,7 @@ namespace AplicacionCaja
             this.button2.Text = "Deposito a Terceros";
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.button2.MouseHover += new System.EventHandler(this.button2_MouseHover);
             // 
             // label4
             // 
@@ -88,6 +90,7 @@ namespace AplicacionCaja
             this.pictureBox2.TabIndex = 13;
             this.pictureBox2.TabStop = false;
             this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
+            this.pictureBox2.MouseHover += new System.EventHandler(this.pictureBox2_MouseHover);
             // 
             // CerrarSesion
             // 
@@ -99,6 +102,7 @@ namespace AplicacionCaja
             this.CerrarSesion.TabIndex = 18;
             this.CerrarSesion.TabStop = false;
             this.CerrarSesion.Click += new System.EventHandler(this.CerrarSesion_Click);
+            this.CerrarSesion.MouseHover += new System.EventHandler(this.CerrarSesion_MouseHover);
             // 
             // Depositos
             // 

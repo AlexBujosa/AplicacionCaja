@@ -75,6 +75,16 @@ namespace AplicacionCaja
             this.Dispose();
         }
 
+        private void button1_MouseHover(object sender, EventArgs e)
+        {
+            Cursor.Current = Cursors.Hand;
+        }
+
+        private void button2_MouseHover(object sender, EventArgs e)
+        {
+            Cursor.Current = Cursors.Hand;
+        }
+
         private void label2_Click(object sender, EventArgs e)
         {
 

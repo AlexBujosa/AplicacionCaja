@@ -74,6 +74,7 @@ namespace AplicacionCaja
             this.CerrarSesion.TabIndex = 18;
             this.CerrarSesion.TabStop = false;
             this.CerrarSesion.Click += new System.EventHandler(this.CerrarSesion_Click);
+            this.CerrarSesion.MouseHover += new System.EventHandler(this.CerrarSesion_MouseHover);
             // 
             // General
             // 

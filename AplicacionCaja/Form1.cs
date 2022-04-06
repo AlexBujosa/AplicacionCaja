@@ -59,5 +59,10 @@ namespace AplicacionCaja
         {
             Application.Exit();
         }
+
+        private void button1_MouseHover(object sender, EventArgs e)
+        {
+            Cursor.Current = Cursors.Hand;
+        }
     }
 }

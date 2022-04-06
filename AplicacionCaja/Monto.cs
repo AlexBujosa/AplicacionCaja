@@ -85,5 +85,15 @@ namespace AplicacionCaja
             Form.Enabled = true;
             this.Dispose();
         }
+
+        private void button1_MouseHover(object sender, EventArgs e)
+        {
+            Cursor.Current = Cursors.Hand;
+        }
+
+        private void button2_MouseHover(object sender, EventArgs e)
+        {
+            Cursor.Current = Cursors.Hand;
+        }
     }
 }

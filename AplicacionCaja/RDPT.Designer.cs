@@ -40,9 +40,11 @@ namespace AplicacionCaja
             this.label3 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.CerrarSesion = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CerrarSesion)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -62,6 +64,7 @@ namespace AplicacionCaja
             this.button1.Text = "Retiro";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button1.MouseHover += new System.EventHandler(this.button1_MouseHover);
             // 
             // button2
             // 
@@ -77,6 +80,7 @@ namespace AplicacionCaja
             this.button2.Text = "Depósito";
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.button2.MouseHover += new System.EventHandler(this.button2_MouseHover);
             // 
             // button3
             // 
@@ -92,6 +96,7 @@ namespace AplicacionCaja
             this.button3.Text = "Pagos";
             this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.button3.MouseHover += new System.EventHandler(this.button3_MouseHover);
             // 
             // button4
             // 
@@ -107,6 +112,7 @@ namespace AplicacionCaja
             this.button4.Text = "Transferencia";
             this.button4.UseVisualStyleBackColor = false;
             this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.button4.MouseHover += new System.EventHandler(this.button4_MouseHover);
             // 
             // label4
             // 
@@ -171,6 +177,17 @@ namespace AplicacionCaja
             this.timer1.Enabled = true;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = global::AplicacionCaja.Properties.Resources.consulta;
+            this.pictureBox3.Location = new System.Drawing.Point(941, 416);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(80, 72);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 18;
+            this.pictureBox3.TabStop = false;
+            this.pictureBox3.MouseHover += new System.EventHandler(this.pictureBox3_MouseHover);
+            // 
             // CerrarSesion
             // 
             this.CerrarSesion.Image = global::AplicacionCaja.Properties.Resources.cerrar_sesion;
@@ -181,6 +198,7 @@ namespace AplicacionCaja
             this.CerrarSesion.TabIndex = 17;
             this.CerrarSesion.TabStop = false;
             this.CerrarSesion.Click += new System.EventHandler(this.CerrarSesion_Click);
+            this.CerrarSesion.MouseHover += new System.EventHandler(this.CerrarSesion_MouseHover);
             // 
             // pictureBox2
             // 
@@ -192,6 +210,7 @@ namespace AplicacionCaja
             this.pictureBox2.TabIndex = 11;
             this.pictureBox2.TabStop = false;
             this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
+            this.pictureBox2.MouseHover += new System.EventHandler(this.pictureBox2_MouseHover);
             // 
             // pictureBox1
             // 
@@ -209,6 +228,7 @@ namespace AplicacionCaja
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(120)))), ((int)(((byte)(142)))));
             this.ClientSize = new System.Drawing.Size(1021, 488);
+            this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.CerrarSesion);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label3);
@@ -227,6 +247,7 @@ namespace AplicacionCaja
             this.Name = "RDPT";
             this.Text = "RDPT";
             this.Load += new System.EventHandler(this.RDPT_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CerrarSesion)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -250,5 +271,6 @@ namespace AplicacionCaja
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.PictureBox CerrarSesion;
+        private System.Windows.Forms.PictureBox pictureBox3;
     }
 }

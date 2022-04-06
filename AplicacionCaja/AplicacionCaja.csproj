@@ -223,5 +223,8 @@
   <ItemGroup>
     <None Include="Resources\cerrar-sesion.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\consulta.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
