@@ -10,7 +10,7 @@ namespace CoreAplicacion
     {
         public string ObtenerConexion()
         {
-            string connection = @"Data Source=(LocalDB)\MSSQLLocalDB;Initial Catalog=NationalBank;Integrated Security=True";
+            string connection = @"workstation id=NationalBank.mssql.somee.com;packet size=4096;user id=BujosaRey_SQLLogin_1;pwd=38ctzqy9qa;data source=NationalBank.mssql.somee.com;persist security info=False;initial catalog=NationalBank";
             return connection;
         }
     }

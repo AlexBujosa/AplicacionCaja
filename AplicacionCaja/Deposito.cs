@@ -1,4 +1,4 @@
-﻿using IntegracionAplicacion;
+﻿using AplicacionCaja.integracion;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -30,12 +30,11 @@ namespace AplicacionCaja
         }
 
         private void CerrarSesion_Click(object sender, EventArgs e)
-        {
-            Depositos.Dispose();
+        {            
             CerrarSesion sesion = new CerrarSesion();
             sesion.EnviarDatos(this);
             sesion.Show();
-            this.Dispose();
+            this.Enabled = false;
         }
 
         private void Deposito_Load(object sender, EventArgs e)
@@ -70,7 +69,7 @@ namespace AplicacionCaja
         private void button1_Click(object sender, EventArgs e)
         {
             montoDeposito = 500;
-            Integracion ASM = new Integracion();
+            IntegracionASMXSoapClient ASM = new IntegracionASMXSoapClient();
             DataSet data = ASM.Transaccion(ID_TipoTransaccion, DbCr, Comentario, NoCuenta, montoDeposito);
             ActualizarAuth(data);
         }
@@ -78,7 +77,7 @@ namespace AplicacionCaja
         private void button2_Click(object sender, EventArgs e)
         {
             montoDeposito = 1000;
-            Integracion ASM = new Integracion();
+            IntegracionASMXSoapClient ASM = new IntegracionASMXSoapClient();
             DataSet data = ASM.Transaccion(ID_TipoTransaccion, DbCr, Comentario, NoCuenta, montoDeposito);
             ActualizarAuth(data);
         }
@@ -86,7 +85,7 @@ namespace AplicacionCaja
         private void button3_Click(object sender, EventArgs e)
         {
             montoDeposito = 1500;
-            Integracion ASM = new Integracion();
+            IntegracionASMXSoapClient ASM = new IntegracionASMXSoapClient();
             DataSet data = ASM.Transaccion(ID_TipoTransaccion, DbCr, Comentario, NoCuenta, montoDeposito);
             ActualizarAuth(data);
         }
@@ -94,7 +93,7 @@ namespace AplicacionCaja
         private void button4_Click(object sender, EventArgs e)
         {
             montoDeposito = 2000;
-            Integracion ASM = new Integracion();
+            IntegracionASMXSoapClient ASM = new IntegracionASMXSoapClient();
             DataSet data = ASM.Transaccion(ID_TipoTransaccion, DbCr, Comentario, NoCuenta, montoDeposito);
             ActualizarAuth(data);
         }
@@ -102,7 +101,7 @@ namespace AplicacionCaja
         private void button5_Click(object sender, EventArgs e)
         {
             montoDeposito = 2500;
-            Integracion ASM = new Integracion();
+            IntegracionASMXSoapClient ASM = new IntegracionASMXSoapClient();
             DataSet data = ASM.Transaccion(ID_TipoTransaccion, DbCr, Comentario, NoCuenta, montoDeposito);
             ActualizarAuth(data);
         }

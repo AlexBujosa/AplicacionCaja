@@ -6,6 +6,9 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AplicacionCaja", "AplicacionCaja\AplicacionCaja.csproj", "{B959CBAC-8BCA-4CF9-9D3B-5F27990A4D0D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Integracion", "Integracion\Integracion.csproj", "{418C6E9E-4604-45A4-92FC-89F732C1E523}"
+	ProjectSection(ProjectDependencies) = postProject
+		{7FBDF840-90C2-477A-8A08-777E63D5E45E} = {7FBDF840-90C2-477A-8A08-777E63D5E45E}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntegracionAplicacion", "IntegracionAplicacion\IntegracionAplicacion.csproj", "{F0A49CF8-EBFB-4BAC-B1A0-E6C8040C39BE}"
 EndProject

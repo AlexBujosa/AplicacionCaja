@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using IntegracionAplicacion;
+using AplicacionCaja.integracion;
 
 namespace AplicacionCaja
 {
@@ -48,7 +48,7 @@ namespace AplicacionCaja
             try
             {
                 monto = decimal.Parse(textBox1.Text);
-                Integracion ASM = new Integracion();
+                IntegracionASMXSoapClient ASM = new IntegracionASMXSoapClient();
                 if (monto > decimal.Parse(Row[1].ToString()) && DbCr == 0)
                     MessageBox.Show("No tiene dinero suficiente para retirar");
                 else if (monto < 0)

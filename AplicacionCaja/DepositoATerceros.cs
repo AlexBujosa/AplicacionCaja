@@ -1,4 +1,4 @@
-﻿using IntegracionAplicacion;
+﻿using AplicacionCaja.integracion;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -44,7 +44,7 @@ namespace AplicacionCaja
             }
             DbCr = 2;
             ID_TipoTransaccion = 2;
-            Integracion ASM = new Integracion();
+            IntegracionASMXSoapClient ASM = new IntegracionASMXSoapClient();
             data = ASM.ObtenerTodasCuentasDiferentes(int.Parse(Authentication.Tables[1].Rows[0][0].ToString()));
             ChargeCmbx();
             comboBox1.SelectedItem = comboBox1.Items[0];
@@ -125,8 +125,8 @@ namespace AplicacionCaja
 
         private void button1_Click(object sender, EventArgs e)
         {
-            montoDeposito = 500; 
-            Integracion ASM = new Integracion();
+            montoDeposito = 500;
+            IntegracionASMXSoapClient ASM = new IntegracionASMXSoapClient();
             int Entidad = int.Parse(comboBox1.SelectedItem.ToString());
             DialogResult dialogResult = MessageBox.Show("¿Realmente deseas realizar esta transacción?", "Transaccion A Terceros", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
@@ -140,7 +140,7 @@ namespace AplicacionCaja
         private void button2_Click(object sender, EventArgs e)
         {
             montoDeposito = 1000;
-            Integracion ASM = new Integracion();
+            IntegracionASMXSoapClient ASM = new IntegracionASMXSoapClient();
             int Entidad = int.Parse(comboBox1.SelectedItem.ToString());
             DialogResult dialogResult = MessageBox.Show("¿Realmente deseas realizar esta transacción?", "Transaccion A Terceros", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
@@ -154,7 +154,7 @@ namespace AplicacionCaja
         private void button3_Click(object sender, EventArgs e)
         {
             montoDeposito = 1500;
-            Integracion ASM = new Integracion();
+            IntegracionASMXSoapClient ASM = new IntegracionASMXSoapClient();
             int Entidad = int.Parse(comboBox1.SelectedItem.ToString());
             DialogResult dialogResult = MessageBox.Show("¿Realmente deseas realizar esta transacción?", "Transaccion A Terceros", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
@@ -168,7 +168,7 @@ namespace AplicacionCaja
         private void button4_Click(object sender, EventArgs e)
         {
             montoDeposito = 2000;
-            Integracion ASM = new Integracion();
+            IntegracionASMXSoapClient ASM = new IntegracionASMXSoapClient();
             int Entidad = int.Parse(comboBox1.SelectedItem.ToString());
             DialogResult dialogResult = MessageBox.Show("¿Realmente deseas realizar esta transacción?", "Transaccion A Terceros", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
@@ -182,7 +182,7 @@ namespace AplicacionCaja
         private void button5_Click(object sender, EventArgs e)
         {
             montoDeposito = 2500;
-            Integracion ASM = new Integracion();
+            IntegracionASMXSoapClient ASM = new IntegracionASMXSoapClient();
             int Entidad = int.Parse(comboBox1.SelectedItem.ToString());
             DialogResult dialogResult = MessageBox.Show("¿Realmente deseas realizar esta transacción?", "Transaccion A Terceros", MessageBoxButtons.YesNo);
             if(dialogResult == DialogResult.Yes)

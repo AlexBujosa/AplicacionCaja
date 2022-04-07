@@ -1,4 +1,4 @@
-﻿using IntegracionAplicacion;
+﻿using AplicacionCaja.integracion;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -44,7 +44,7 @@ namespace AplicacionCaja
         private void button1_Click(object sender, EventArgs e)
         {
             montoRetiro = 500;
-            Integracion ASM = new Integracion();
+            IntegracionASMXSoapClient ASM = new IntegracionASMXSoapClient();
             if (montoRetiro > decimal.Parse(row[1].ToString()))
                 MessageBox.Show("No tiene dinero suficiente para retirar");
             else
@@ -57,7 +57,7 @@ namespace AplicacionCaja
         private void button2_Click(object sender, EventArgs e)
         {
             montoRetiro = 1000;
-            Integracion ASM = new Integracion();
+            IntegracionASMXSoapClient ASM = new IntegracionASMXSoapClient();
             if (montoRetiro > decimal.Parse(row[1].ToString()))
                 MessageBox.Show("No tiene dinero suficiente para retirar");
             else
@@ -70,7 +70,7 @@ namespace AplicacionCaja
         private void button3_Click(object sender, EventArgs e)
         {
             montoRetiro = 1500;
-            Integracion ASM = new Integracion();
+            IntegracionASMXSoapClient ASM = new IntegracionASMXSoapClient();
             if (montoRetiro > decimal.Parse(row[1].ToString()))
                 MessageBox.Show("No tiene dinero suficiente para retirar");
             else
@@ -83,7 +83,7 @@ namespace AplicacionCaja
         private void button4_Click(object sender, EventArgs e)
         {
             montoRetiro = 2000;
-            Integracion ASM = new Integracion();
+            IntegracionASMXSoapClient ASM = new IntegracionASMXSoapClient();
             if (montoRetiro > decimal.Parse(row[1].ToString()))
                 MessageBox.Show("No tiene dinero suficiente para retirar");
             else
@@ -96,7 +96,7 @@ namespace AplicacionCaja
         private void button5_Click(object sender, EventArgs e)
         {
             montoRetiro = 2500;
-            Integracion ASM = new Integracion();
+            IntegracionASMXSoapClient ASM = new IntegracionASMXSoapClient();
             if (montoRetiro > decimal.Parse(row[1].ToString()))
                 MessageBox.Show("No tiene dinero suficiente para retirar");
             else

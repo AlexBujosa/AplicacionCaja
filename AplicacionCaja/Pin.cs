@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using IntegracionAplicacion;
+using AplicacionCaja.integracion;
 
 namespace AplicacionCaja
 {
@@ -28,7 +28,7 @@ namespace AplicacionCaja
             if (textBox1.TextLength == 4 && int.TryParse(textBox1.Text, out vr))
             {
                 pin = int.Parse(textBox1.Text);
-                Integracion ASM = new Integracion();
+                IntegracionASMXSoapClient ASM = new IntegracionASMXSoapClient();
                 DataSet Auth = new DataSet();
                 Auth = ASM.Autenticacion(usuario, clave, pin);
                 if (Auth.Tables[2].Rows.Count > 0)

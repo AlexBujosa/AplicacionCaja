@@ -1,4 +1,4 @@
-﻿using IntegracionAplicacion;
+﻿using AplicacionCaja.integracion;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -41,7 +41,7 @@ namespace AplicacionCaja
                     MessageBox.Show("Error: No montos menores que 100");
                 else
                 {
-                    Integracion ASM = new Integracion();
+                    IntegracionASMXSoapClient ASM = new IntegracionASMXSoapClient();
                     DialogResult dialogResult = MessageBox.Show("¿Realmente deseas realizar esta transacción?", "Transaccion A Terceros", MessageBoxButtons.YesNo);
                     if (dialogResult == DialogResult.Yes)
                     {

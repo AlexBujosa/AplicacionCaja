@@ -34,7 +34,11 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -54,6 +58,11 @@
     </Compile>
     <Compile Include="CerrarSesion.Designer.cs">
       <DependentUpon>CerrarSesion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\integracion\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="Deposito.cs">
       <SubType>Form</SubType>
@@ -177,6 +186,8 @@
     <EmbeddedResource Include="Transferencia.resx">
       <DependentUpon>Transferencia.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Connected Services\integracion\IntegracionASMX.wsdl" />
+    <None Include="Properties\DataSources\System.Data.DataSet.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -195,12 +206,6 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\IntegracionAplicacion\IntegracionAplicacion.csproj">
-      <Project>{f0a49cf8-ebfb-4bac-b1a0-e6c8040c39be}</Project>
-      <Name>IntegracionAplicacion</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\white.jpg" />
@@ -225,6 +230,24 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\consulta.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\integracion\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\integracion\IntegracionASMX.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\integracion\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\integracion\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\integracion\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
