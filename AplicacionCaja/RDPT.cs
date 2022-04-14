@@ -150,5 +150,13 @@ namespace AplicacionCaja
         {
             Cursor.Current = Cursors.Hand;
         }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            ConsultarMovimientos mov = new ConsultarMovimientos();
+            mov.EnviarDatos(this);
+            mov.Show();
+        }
     }
 }
