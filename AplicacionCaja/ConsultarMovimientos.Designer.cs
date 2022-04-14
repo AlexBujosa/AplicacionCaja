@@ -74,6 +74,7 @@ namespace AplicacionCaja
             this.Controls.Add(this.dataGridView1);
             this.Name = "ConsultarMovimientos";
             this.Text = "ConsultarMovimientos";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ConsultarMovimientos_FormClosing);
             this.Load += new System.EventHandler(this.ConsultarMovimientos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();

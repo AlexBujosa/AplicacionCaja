@@ -155,7 +155,7 @@ namespace AplicacionCaja
         {
             this.Visible = false;
             ConsultarMovimientos mov = new ConsultarMovimientos();
-            mov.EnviarDatos(this);
+            mov.EnviarDatos(this, Authentication, NoCuenta);
             mov.Show();
         }
     }
