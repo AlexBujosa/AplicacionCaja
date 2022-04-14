@@ -28,6 +28,7 @@ namespace AplicacionCaja
         private string Comentario;
         private int Entidad;
         private int ID_TipoEntidad;
+        private string Tercero;
         public Transferencia()
         {
             InitializeComponent();
@@ -61,6 +62,7 @@ namespace AplicacionCaja
                             label3.Text = "Sexo: " + R[1].ToString();
                             label4.Text = "Cedula: " + R[2].ToString();
                             label5.Text = "Nombres: " + R[3].ToString();
+                            Tercero = R[3].ToString(); 
                         }
                     }
                     pictureBox1.Visible = true;
@@ -219,11 +221,29 @@ namespace AplicacionCaja
         }
         public void Actualizaciones(DataSet dataSet)
         {
-            ActualizarNoCuenta(dataSet);
-            AgregarTransacciones(dataSet);
-            AgregarPago(dataSet);
-            TransaccionProcesada();
-            comboBox1.SelectedItem = comboBox1.Items[0];
+            try
+            {
+                ActualizarNoCuenta(dataSet);
+                AgregarTransacciones(dataSet);
+                AgregarPago(dataSet);
+                TransaccionProcesada();
+                comboBox1.SelectedItem = comboBox1.Items[0];
+                DeseaHacerReporte();
+            }
+            catch(Exception ex)
+            {
+                TransaccionNoProcesada();
+            }
+        }
+        public void DeseaHacerReporte()
+        {
+            DialogResult dialogResult = MessageBox.Show(($"¿Deseas {Nombres} imprimir la transaccion?"), "Reporte", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                Reporte reporte = new Reporte();
+                reporte.EnviarDatos(NoCuenta, Monto, montoTransferenciaTercero, DbCr, ID_TipoTransaccion, Tercero);
+                reporte.Show();
+            }
         }
         public void ActualizarNoCuenta(DataSet DATASET)
         {
@@ -252,6 +272,10 @@ namespace AplicacionCaja
         public void TransaccionProcesada()
         {
             MessageBox.Show("Transaccion Procesada");
+        }
+        public void TransaccionNoProcesada()
+        {
+            MessageBox.Show("Transaccion No Procesada");
         }
 
         public void RecibirActualizacion(DataSet Auth, decimal monto)

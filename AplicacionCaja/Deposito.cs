@@ -120,25 +120,51 @@ namespace AplicacionCaja
         }
         public void ActualizarAuth(DataSet data)
         {
-            row = data.Tables[0].Rows[0];
-            for (int i = 0; i < Authentication.Tables[0].Rows.Count; i++)
+            try
             {
-                if (int.Parse(Authentication.Tables[0].Rows[i][0].ToString()) == NoCuenta)
+                row = data.Tables[0].Rows[0];
+                for (int i = 0; i < Authentication.Tables[0].Rows.Count; i++)
                 {
-                    Authentication.Tables[0].Rows[i][0] = row[0];
-                    Authentication.Tables[0].Rows[i][1] = row[1];
-                    Authentication.Tables[0].Rows[i][2] = row[2];
-                    Authentication.Tables[0].Rows[i][2] = row[3];
-                    Authentication.Tables[0].Rows[i][4] = row[4];
-                    Monto = decimal.Parse(row[1].ToString());
+                    if (int.Parse(Authentication.Tables[0].Rows[i][0].ToString()) == NoCuenta)
+                    {
+                        Authentication.Tables[0].Rows[i][0] = row[0];
+                        Authentication.Tables[0].Rows[i][1] = row[1];
+                        Authentication.Tables[0].Rows[i][2] = row[2];
+                        Authentication.Tables[0].Rows[i][2] = row[3];
+                        Authentication.Tables[0].Rows[i][4] = row[4];
+                        Monto = decimal.Parse(row[1].ToString());
+                    }
                 }
+                Authentication.Tables[3].Rows.Add(data.Tables[1].Rows[0].ItemArray);
+                TransaccionProcesada();
+                DeseaHacerReporte();
             }
-            Authentication.Tables[3].Rows.Add(data.Tables[1].Rows[0].ItemArray);
-            TransaccionProcesada();
+            catch(Exception ex){
+                TransaccionNoProcesada();
+            }
+            
+        }
+        public void DeseaHacerReporte()
+        {
+            DialogResult dialogResult = MessageBox.Show(($"¿Deseas {Nombres} imprimir la transaccion?"), "Reporte", MessageBoxButtons.YesNo);
+            if(dialogResult == DialogResult.Yes)
+            {
+                Reporte reporte = new Reporte();
+                reporte.EnviarDatos(NoCuenta, Monto, montoDeposito, DbCr, ID_TipoTransaccion);
+                reporte.Show();
+            }
+        }
+        public void EnviarDeposito(decimal MontoDeposito)
+        {
+            montoDeposito = MontoDeposito;
         }
         public void TransaccionProcesada()
         {
             MessageBox.Show("Transaccion Procesada");
+        }
+        public void TransaccionNoProcesada()
+        {
+            MessageBox.Show("Transaccion No Procesada");
         }
 
         private void pictureBox2_MouseHover(object sender, EventArgs e)

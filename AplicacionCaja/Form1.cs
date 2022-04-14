@@ -57,12 +57,17 @@ namespace AplicacionCaja
 
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Application.Exit();
+            
         }
 
         private void button1_MouseHover(object sender, EventArgs e)
         {
             Cursor.Current = Cursors.Hand;
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

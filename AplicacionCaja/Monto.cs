@@ -60,12 +60,14 @@ namespace AplicacionCaja
                     {
                         Deposito deposito = new Deposito();
                         deposito = (Deposito)Form;
+                        deposito.EnviarDeposito(monto);
                         deposito.ActualizarAuth(data);
                     }
                     else
                     {
                         Retiro retiro = new Retiro();
                         retiro = (Retiro)Form;
+                        retiro.EnviarRetiro(monto);
                         retiro.ActualizarAuth(data);
                     }
                     Form.Enabled = true;
