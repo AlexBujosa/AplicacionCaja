@@ -39,7 +39,7 @@ namespace AplicacionCaja
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(505, 65);
+            this.dataGridView1.Location = new System.Drawing.Point(505, 87);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(447, 179);
             this.dataGridView1.TabIndex = 0;
@@ -47,7 +47,7 @@ namespace AplicacionCaja
             // dataGridView2
             // 
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(42, 65);
+            this.dataGridView2.Location = new System.Drawing.Point(31, 87);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.Size = new System.Drawing.Size(447, 179);
             this.dataGridView2.TabIndex = 1;

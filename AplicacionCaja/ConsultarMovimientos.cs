@@ -7,12 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Linq;
 
 namespace AplicacionCaja
 {
     public partial class ConsultarMovimientos : Form
     {
         public RDPT RDPT;
+        public DataSet Authentication;
         public ConsultarMovimientos()
         {
             InitializeComponent();
@@ -25,11 +27,23 @@ namespace AplicacionCaja
 
         private void ConsultarMovimientos_Load(object sender, EventArgs e)
         {
+            string[] TiposTransacciones = { "TransferenciaTercero", "DepositoTercero", "PagoPrestamo", "Deposito", "Retiro"};
+            var joinResult = (from t in Authentication.Tables[3].AsEnumerable()
+                              join p in Authentication.Tables[4].AsEnumerable()
+                              on t.Field<string>("ID_Transacciones") equals p.Field<string>("ID_Transacciones")
+                              select new
+                              {
+                                  NoCuenta = t.Field<int>("NoCuenta"),
+                                  Monto = t.Field<decimal>("Monto"),
+
+                              }).ToList();
+
 
         }
-        public void EnviarDatos(RDPT rdpt)
+        public void EnviarDatos(RDPT rdpt, DataSet auth)
         {
             RDPT = rdpt;
+            Authentication = auth;
         }
     }
 }

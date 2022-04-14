@@ -139,7 +139,7 @@ namespace AplicacionCaja
                 TransaccionProcesada();
                 DeseaHacerReporte();
             }
-            catch(Exception ex){
+            catch(Exception){
                 TransaccionNoProcesada();
             }
             
