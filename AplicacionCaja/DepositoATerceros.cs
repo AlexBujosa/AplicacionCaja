@@ -235,12 +235,19 @@ namespace AplicacionCaja
                 TransaccionProcesada();
                 comboBox1.SelectedItem = comboBox1.Items[0];
                 DeseaHacerReporte();
+                InsertarCajero(data);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 TransaccionNoProcesada();
             }
             
+        }
+        public void InsertarCajero(DataSet data)
+        {
+            Cajero cajero = new Cajero();
+            cajero.InsertarTransaccionCaja(int.Parse(data.Tables[1].Rows[0][0].ToString()), montoDeposito, DbCr);
+            cajero.UpdateCaja(Monto, DbCr);
         }
         public void DeseaHacerReporte()
         {

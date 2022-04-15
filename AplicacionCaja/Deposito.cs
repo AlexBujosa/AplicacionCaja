@@ -138,11 +138,19 @@ namespace AplicacionCaja
                 Authentication.Tables[3].Rows.Add(data.Tables[1].Rows[0].ItemArray);
                 TransaccionProcesada();
                 DeseaHacerReporte();
+                InsertarCajero(data);
+                
             }
             catch(Exception){
                 TransaccionNoProcesada();
             }
             
+        }
+        public void InsertarCajero(DataSet data)
+        {
+            Cajero cajero = new Cajero();
+            cajero.InsertarTransaccionCaja(int.Parse(data.Tables[1].Rows[0][0].ToString()), montoDeposito, DbCr);
+            cajero.UpdateCaja(Monto, DbCr);
         }
         public void DeseaHacerReporte()
         {

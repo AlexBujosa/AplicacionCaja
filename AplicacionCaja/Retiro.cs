@@ -43,68 +43,100 @@ namespace AplicacionCaja
 
         private void button1_Click(object sender, EventArgs e)
         {
+            Cajero cajero = new Cajero();
             montoRetiro = 500;
-            IntegracionASMXSoapClient ASM = new IntegracionASMXSoapClient();
-            if (montoRetiro > decimal.Parse(row[1].ToString()))
-                MessageBox.Show("No tiene dinero suficiente para retirar");
-            else
+            if (cajero.ConseguirSaldo() >= montoRetiro)
             {
-                DataSet data = ASM.Transaccion(ID_TipoTransaccion, DbCr, Comentario, NoCuenta, montoRetiro);
-                ActualizarAuth(data);
+                IntegracionASMXSoapClient ASM = new IntegracionASMXSoapClient();
+                if (montoRetiro > decimal.Parse(row[1].ToString()))
+                    MessageBox.Show("No tiene dinero suficiente para retirar");
+                else
+                {
+                    DataSet data = ASM.Transaccion(ID_TipoTransaccion, DbCr, Comentario, NoCuenta, montoRetiro);
+                    ActualizarAuth(data);
+                }
             }
+            else
+                MessageBox.Show("El cajero no tiene dinero suficiente para retirar");
+            
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
+            Cajero cajero = new Cajero();
             montoRetiro = 1000;
-            IntegracionASMXSoapClient ASM = new IntegracionASMXSoapClient();
-            if (montoRetiro > decimal.Parse(row[1].ToString()))
-                MessageBox.Show("No tiene dinero suficiente para retirar");
-            else
+            if (cajero.ConseguirSaldo() >= montoRetiro)
             {
-                DataSet data = ASM.Transaccion(ID_TipoTransaccion, DbCr, Comentario, NoCuenta, montoRetiro);
-                ActualizarAuth(data);
+                IntegracionASMXSoapClient ASM = new IntegracionASMXSoapClient();
+                if (montoRetiro > decimal.Parse(row[1].ToString()))
+                    MessageBox.Show("No tiene dinero suficiente para retirar");
+                else
+                {
+                    DataSet data = ASM.Transaccion(ID_TipoTransaccion, DbCr, Comentario, NoCuenta, montoRetiro);
+                    ActualizarAuth(data);
+                }
             }
+            else
+                MessageBox.Show("El cajero no tiene dinero suficiente para retirar");
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
+            Cajero cajero = new Cajero();
             montoRetiro = 1500;
-            IntegracionASMXSoapClient ASM = new IntegracionASMXSoapClient();
-            if (montoRetiro > decimal.Parse(row[1].ToString()))
-                MessageBox.Show("No tiene dinero suficiente para retirar");
-            else
+            if (cajero.ConseguirSaldo() >= montoRetiro)
             {
-                DataSet data = ASM.Transaccion(ID_TipoTransaccion, DbCr, Comentario, NoCuenta, montoRetiro);
-                ActualizarAuth(data);
+                IntegracionASMXSoapClient ASM = new IntegracionASMXSoapClient();
+                if (montoRetiro > decimal.Parse(row[1].ToString()))
+                    MessageBox.Show("No tiene dinero suficiente para retirar");
+                else
+                {
+                    DataSet data = ASM.Transaccion(ID_TipoTransaccion, DbCr, Comentario, NoCuenta, montoRetiro);
+                    ActualizarAuth(data);
+                }
             }
+            else
+                MessageBox.Show("El cajero no tiene dinero suficiente para retirar");
+
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
+            Cajero cajero = new Cajero();
             montoRetiro = 2000;
-            IntegracionASMXSoapClient ASM = new IntegracionASMXSoapClient();
-            if (montoRetiro > decimal.Parse(row[1].ToString()))
-                MessageBox.Show("No tiene dinero suficiente para retirar");
-            else
+            if (cajero.ConseguirSaldo() >= montoRetiro)
             {
-                DataSet data = ASM.Transaccion(ID_TipoTransaccion, DbCr, Comentario, NoCuenta, montoRetiro);
-                ActualizarAuth(data);
+                IntegracionASMXSoapClient ASM = new IntegracionASMXSoapClient();
+                if (montoRetiro > decimal.Parse(row[1].ToString()))
+                    MessageBox.Show("No tiene dinero suficiente para retirar");
+                else
+                {
+                    DataSet data = ASM.Transaccion(ID_TipoTransaccion, DbCr, Comentario, NoCuenta, montoRetiro);
+                    ActualizarAuth(data);
+                }
             }
+            else
+                MessageBox.Show("El cajero no tiene dinero suficiente para retirar");
+
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
+            Cajero cajero = new Cajero();
             montoRetiro = 2500;
-            IntegracionASMXSoapClient ASM = new IntegracionASMXSoapClient();
-            if (montoRetiro > decimal.Parse(row[1].ToString()))
-                MessageBox.Show("No tiene dinero suficiente para retirar");
-            else
+            if (cajero.ConseguirSaldo() >= montoRetiro)
             {
-                DataSet data = ASM.Transaccion(ID_TipoTransaccion, DbCr, Comentario, NoCuenta, montoRetiro);
-                ActualizarAuth(data);
+                IntegracionASMXSoapClient ASM = new IntegracionASMXSoapClient();
+                if (montoRetiro > decimal.Parse(row[1].ToString()))
+                    MessageBox.Show("No tiene dinero suficiente para retirar");
+                else
+                {
+                    DataSet data = ASM.Transaccion(ID_TipoTransaccion, DbCr, Comentario, NoCuenta, montoRetiro);
+                    ActualizarAuth(data);
+                }
             }
-                
+            else
+                MessageBox.Show("El cajero no tiene dinero suficiente para retirar");
         }
 
         private void button6_Click(object sender, EventArgs e)
@@ -168,13 +200,20 @@ namespace AplicacionCaja
                 Authentication.Tables[3].Rows.Add(data.Tables[1].Rows[0].ItemArray);
                 TransaccionProcesada();
                 DeseaHacerReporte();
+                InsertarCajero(data);
                 
             }
-            catch(Exception ex)
+            catch(Exception)
             {
                 TransaccionNoProcesada();
             }
            
+        }
+        public void InsertarCajero(DataSet data)
+        {
+            Cajero cajero = new Cajero();
+            cajero.InsertarTransaccionCaja(int.Parse(data.Tables[1].Rows[0][0].ToString()), montoRetiro, DbCr);
+            cajero.UpdateCaja(Monto, DbCr);
         }
         public void DeseaHacerReporte()
         {

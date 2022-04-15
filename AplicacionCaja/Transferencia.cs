@@ -230,7 +230,7 @@ namespace AplicacionCaja
                 comboBox1.SelectedItem = comboBox1.Items[0];
                 DeseaHacerReporte();
             }
-            catch(Exception ex)
+            catch(Exception)
             {
                 TransaccionNoProcesada();
             }

@@ -76,6 +76,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ABControls\renderButton.cs" />
+    <Compile Include="Cajero.cs" />
     <Compile Include="Capa de Negocio\Controlador.cs" />
     <Compile Include="CerrarSesion.cs">
       <SubType>Form</SubType>
