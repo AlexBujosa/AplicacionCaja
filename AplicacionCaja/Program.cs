@@ -18,5 +18,11 @@ namespace AplicacionCaja
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
         }
+
+        static public void EjecutarCuadre()
+        {
+            CuadreTransaccional ct = new CuadreTransaccional();
+            ct.Show();
+        }
     }
 }
