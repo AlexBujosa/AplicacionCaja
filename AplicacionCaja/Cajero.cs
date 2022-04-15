@@ -15,9 +15,9 @@ namespace AplicacionCaja
         public string ConnectionStrings;
         public SqlConnection Connection;
         SqlCommand sqlCommand;
-        public int ConseguirSaldo()
+        public decimal ConseguirSaldo()
         {
-            int resultado = 0;
+            decimal resultado = 0;
             DataSet dataSet = new DataSet();
             Connection = new SqlConnection();
             ConnectionStrings = Conexion();
@@ -32,7 +32,7 @@ namespace AplicacionCaja
             da.Fill(dataSet);
             try
             {
-                resultado = int.Parse(dataSet.Tables[0].Rows[0][0].ToString());
+                resultado = decimal.Parse(dataSet.Tables[0].Rows[0][0].ToString());
             }
             catch (Exception)
             {

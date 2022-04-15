@@ -213,7 +213,7 @@ namespace AplicacionCaja
         {
             Cajero cajero = new Cajero();
             cajero.InsertarTransaccionCaja(int.Parse(data.Tables[1].Rows[0][0].ToString()), montoRetiro, DbCr);
-            cajero.UpdateCaja(Monto, DbCr);
+            cajero.UpdateCaja(montoRetiro, DbCr);
         }
         public void DeseaHacerReporte()
         {
