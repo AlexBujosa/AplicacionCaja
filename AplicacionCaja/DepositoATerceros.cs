@@ -43,7 +43,7 @@ namespace AplicacionCaja
                 if (int.Parse(table.Rows[i][0].ToString()) == NoCuenta)
                     row = table.Rows[i];
             }
-            DbCr = 2;
+            DbCr = 0;
             ID_TipoTransaccion = 2;
             IntegracionASMXSoapClient ASM = new IntegracionASMXSoapClient();
             data = ASM.ObtenerTodasCuentasDiferentes(int.Parse(Authentication.Tables[1].Rows[0][0].ToString()));
@@ -227,20 +227,13 @@ namespace AplicacionCaja
         }
         public void Actualizaciones(DataSet dataSet)
         {
-            try
-            {
-                ActualizarNoCuenta(dataSet);
-                AgregarTransacciones(dataSet);
-                AgregarPago(dataSet);
-                TransaccionProcesada();
-                comboBox1.SelectedItem = comboBox1.Items[0];
-                DeseaHacerReporte();
-                InsertarCajero(data);
-            }
-            catch (Exception)
-            {
-                TransaccionNoProcesada();
-            }
+            ActualizarNoCuenta(dataSet);
+            AgregarTransacciones(dataSet);
+            AgregarPago(dataSet);
+            TransaccionProcesada();
+            comboBox1.SelectedItem = comboBox1.Items[0];
+            DeseaHacerReporte();
+            InsertarCajero(data);
             
         }
         public void InsertarCajero(DataSet data)
