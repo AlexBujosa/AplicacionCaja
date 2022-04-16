@@ -156,6 +156,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>NationalBankCajeroDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="NationalBankCajeroDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NationalBankCajeroDataSet1.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Pin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -257,6 +262,17 @@
     </None>
     <None Include="NationalBankCajeroDataSet.xss">
       <DependentUpon>NationalBankCajeroDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="NationalBankCajeroDataSet1.xsc">
+      <DependentUpon>NationalBankCajeroDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="NationalBankCajeroDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>NationalBankCajeroDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="NationalBankCajeroDataSet1.xss">
+      <DependentUpon>NationalBankCajeroDataSet1.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\System.Data.DataSet.datasource" />

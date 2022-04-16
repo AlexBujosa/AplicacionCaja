@@ -33,11 +33,21 @@ namespace AplicacionCaja
                 Auth = ASM.Autenticacion(usuario, clave, pin);
                 if (Auth.Tables[2].Rows.Count > 0)
                 {
-                    General general = new General();
-                    general.Enviar(Auth);
-                    general.AgregarBotones();
-                    general.Show();
-                    this.Dispose();
+                    if(Auth.Tables[2].Rows[0][2].ToString() == "Admin")
+                    {
+                        CuadreTransaccional cuadre = new CuadreTransaccional();
+                        cuadre.Show();
+                        this.Dispose();
+                    }
+                    else
+                    {
+                        General general = new General();
+                        general.Enviar(Auth);
+                        general.AgregarBotones();
+                        general.Show();
+                        this.Dispose();
+                    }
+                    
                 }
                 else
                 {

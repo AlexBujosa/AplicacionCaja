@@ -53,6 +53,7 @@ namespace AplicacionCaja
             this.MaximizeBox = false;
             this.Name = "CuadreTransaccional";
             this.Text = "CuadreTransaccional";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.CuadreTransaccional_FormClosing);
             this.Load += new System.EventHandler(this.CuadreTransaccional_Load);
             this.ResumeLayout(false);
 

@@ -14,6 +14,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntegracionAplicacion", "In
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoreAplicacion", "CoreAplicacion\CoreAplicacion.csproj", "{7FBDF840-90C2-477A-8A08-777E63D5E45E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CuadreTransaccionalCajero", "CuadreTransaccionalCajero\CuadreTransaccionalCajero.csproj", "{AFE1DAF9-11CA-4139-866A-C35D28CED3FD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ManejadorTransaccionesCajero", "ManejadorTransaccionesCajero\ManejadorTransaccionesCajero.csproj", "{A2976BD3-9BCC-4A86-B1F2-4CF115B2F7C9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,6 +40,14 @@ Global
 		{7FBDF840-90C2-477A-8A08-777E63D5E45E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7FBDF840-90C2-477A-8A08-777E63D5E45E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7FBDF840-90C2-477A-8A08-777E63D5E45E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AFE1DAF9-11CA-4139-866A-C35D28CED3FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AFE1DAF9-11CA-4139-866A-C35D28CED3FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AFE1DAF9-11CA-4139-866A-C35D28CED3FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AFE1DAF9-11CA-4139-866A-C35D28CED3FD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A2976BD3-9BCC-4A86-B1F2-4CF115B2F7C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A2976BD3-9BCC-4A86-B1F2-4CF115B2F7C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A2976BD3-9BCC-4A86-B1F2-4CF115B2F7C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A2976BD3-9BCC-4A86-B1F2-4CF115B2F7C9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

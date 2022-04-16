@@ -22,7 +22,7 @@ namespace AplicacionCaja
             string reducir = "";
             Cajero cajero = new Cajero();
             decimal monto = cajero.ConseguirSaldo();
-            if (monto> 200000)
+            if (monto > 200000)
             {
                 reducir = "Reducir DOP $" + (monto - 200000).ToString() + " para cuadrar";
             }
@@ -38,7 +38,13 @@ namespace AplicacionCaja
             ReportParameterCollection reportParameters = new ReportParameterCollection();
             reportParameters.Add(new ReportParameter("Total", monto.ToString()));
             reportParameters.Add(new ReportParameter("mensajeCuadre", reducir));
+            reportViewer1.LocalReport.SetParameters(reportParameters);
             this.reportViewer1.RefreshReport();
+        }
+
+        private void CuadreTransaccional_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
