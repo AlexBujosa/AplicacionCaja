@@ -67,6 +67,30 @@ namespace AplicacionCaja
             Connection.Close();
             return resultado;
         }
+        public int Cuadre()
+        {
+            Connection = new SqlConnection();
+            ConnectionStrings = Conexion();
+            Connection.ConnectionString = ConnectionStrings;
+            Connection.Open();
+            int resultado = 0;
+            sqlCommand = new SqlCommand();
+            sqlCommand.CommandText = "ppCuadre";
+            sqlCommand.Parameters.AddWithValue("@ID_Cajero", ID_Cajero);
+            sqlCommand.CommandType = System.Data.CommandType.StoredProcedure;
+            sqlCommand.Connection = Connection;
+            try
+            {
+                resultado = sqlCommand.ExecuteNonQuery();
+
+            }
+            catch (Exception)
+            {
+
+            }
+            Connection.Close();
+            return resultado;
+        }
         public int UpdateCaja(decimal Saldo_Cajero, int DbCr)
         {
             Connection = new SqlConnection();

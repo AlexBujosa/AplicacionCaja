@@ -26,7 +26,7 @@ namespace AplicacionCaja
         private decimal montoDeposito;
         private int ID_TipoTransaccion;
         private string Comentario;
-        private string valor;
+        private List<string> valor;
         private int Entidad;
         private int ID_TipoEntidad;
         private string Tercero;
@@ -48,72 +48,85 @@ namespace AplicacionCaja
             IntegracionASMXSoapClient ASM = new IntegracionASMXSoapClient();
             data = ASM.ObtenerTodasCuentasDiferentes(int.Parse(Authentication.Tables[1].Rows[0][0].ToString()));
             ChargeCmbx();
+            //valor = new List<string>();
+            //for (int i = 0; i < comboBox1.Items.Count; i++)
+            //{
+            //    valor.Add(comboBox1.Items[i].ToString());
+            //}
             comboBox1.SelectedItem = comboBox1.Items[0];
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            if (comboBox1.SelectedItem == null)
+            try
             {
-                comboBox1.SelectedItem = comboBox1.Items[0];
-            }
-            if (!comboBox1.DroppedDown && char.IsDigit(comboBox1.SelectedItem.ToString()[0]))
-            {
-                int NoCuenta = int.Parse(comboBox1.SelectedItem.ToString());
-                foreach(DataRow R in data.Tables[0].Rows)
+                if (comboBox1.SelectedItem == null)
                 {
-                    if (int.Parse(R[0].ToString()) == NoCuenta)
-                    {
-                        Row = R;
-                        label2.Text = "NoCuenta: " + R[0].ToString();
-                        label3.Text = "Sexo: " + R[1].ToString();
-                        label4.Text = "Cedula: " + R[2].ToString();
-                        label5.Text = "Nombres: " + R[3].ToString();
-                        Tercero = R[3].ToString();
-                    }
+                    comboBox1.SelectedItem = comboBox1.Items[0];
                 }
-                pictureBox1.Visible = true;
-                label2.Visible = true;
-                label3.Visible = true;
-                label4.Visible = true;
-                label5.Visible = true;
-                label6.Visible = false;
-                button1.Visible = true;
-                button2.Visible = true;
-                button3.Visible = true;
-                button4.Visible = true;
-                button5.Visible = true;
-                button6.Visible = true;
-                label8.Visible = true;
-                textBox1.Visible = true;
-                this.Size = new Size(985, 659);
-                ID_TipoEntidad = 1;
-                Entidad = int.Parse(Row[0].ToString());
+                if (!comboBox1.DroppedDown && char.IsDigit(comboBox1.SelectedItem.ToString()[0]))
+                {
+                    int NoCuenta = int.Parse(comboBox1.SelectedItem.ToString());
+                    foreach (DataRow R in data.Tables[0].Rows)
+                    {
+                        if (int.Parse(R[0].ToString()) == NoCuenta)
+                        {
+                            Row = R;
+                            label2.Text = "NoCuenta: " + R[0].ToString();
+                            label3.Text = "Sexo: " + R[1].ToString();
+                            label4.Text = "Cedula: " + R[2].ToString();
+                            label5.Text = "Nombres: " + R[3].ToString();
+                            Tercero = R[3].ToString();
+                        }
+                    }
+                    pictureBox1.Visible = true;
+                    label2.Visible = true;
+                    label3.Visible = true;
+                    label4.Visible = true;
+                    label5.Visible = true;
+                    label6.Visible = false;
+                    button1.Visible = true;
+                    button2.Visible = true;
+                    button3.Visible = true;
+                    button4.Visible = true;
+                    button5.Visible = true;
+                    button6.Visible = true;
+                    label8.Visible = true;
+                    textBox1.Visible = true;
+                    this.Size = new Size(985, 659);
+                    ID_TipoEntidad = 1;
+                    Entidad = int.Parse(Row[0].ToString());
+                }
+                else
+                {
+                    pictureBox1.Visible = false;
+                    label2.Visible = false;
+                    label3.Visible = false;
+                    label4.Visible = false;
+                    label5.Visible = false;
+                    label6.Visible = true;
+                    button1.Visible = false;
+                    button2.Visible = false;
+                    button3.Visible = false;
+                    button4.Visible = false;
+                    button5.Visible = false;
+                    button6.Visible = false;
+                    label8.Visible = false;
+                    textBox1.Visible = false;
+                    if (DateTime.Now.Second % 3 == 0)
+                        label6.Text = "Seleccione el Numero de Cuenta .";
+                    else if (DateTime.Now.Second % 3 == 1)
+                        label6.Text = "Seleccione el Numero de Cuenta ..";
+                    else if (DateTime.Now.Second % 3 == 2)
+                        label6.Text = "Seleccione el Numero de Cuenta ...";
+                    this.Size = new Size(985, 487);
+                }
             }
-            else
+            catch
             {
-                pictureBox1.Visible = false;
-                label2.Visible = false;
-                label3.Visible = false;
-                label4.Visible = false;
-                label5.Visible = false;
-                label6.Visible = true;
-                button1.Visible = false;
-                button2.Visible = false;
-                button3.Visible = false;
-                button4.Visible = false;
-                button5.Visible = false;
-                button6.Visible = false;
-                label8.Visible = false;
-                textBox1.Visible = false;
-                if(DateTime.Now.Second % 3 == 0)
-                    label6.Text = "Seleccione el Numero de Cuenta .";
-                else if(DateTime.Now.Second % 3 == 1)
-                    label6.Text = "Seleccione el Numero de Cuenta ..";
-                else if (DateTime.Now.Second % 3 == 2)
-                    label6.Text = "Seleccione el Numero de Cuenta ...";
-                this.Size = new Size(985, 487);
+
             }
+           
         }
         public void EnviarDatos(Depositos depositos, int id_TipoCuenta, int noCuenta, DataSet auth, string nombres, decimal monto)
         {
@@ -200,7 +213,6 @@ namespace AplicacionCaja
             MontoTercero montoTercero = new MontoTercero();
             montoTercero.EnviarDatos(this, row, Authentication, NoCuenta, Entidad, ID_TipoEntidad, ID_TipoTransaccion, DbCr, Comentario, Nombres);
             montoTercero.Show();
-            timer1.Stop();
             this.Enabled = false;
         }
         public void ChargeCmbx()
@@ -297,14 +309,9 @@ namespace AplicacionCaja
         {
             Authentication = Auth;
             Monto = monto;
-            valor = comboBox1.SelectedItem.ToString();
-            comboBox1.SelectedItem = comboBox1.Items[0];
-            System.Threading.Thread.Sleep(5000);
-            timer1.Start();
         }
         private void comboBox1_SelectedValueChanged(object sender, EventArgs e)
         {
-            valor = comboBox1.SelectedItem.ToString();
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)

@@ -133,7 +133,7 @@ namespace AplicacionCaja
             DialogResult dialogResult = MessageBox.Show("¿Realmente deseas realizar esta transacción?", "Transaccion A Terceros", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-                Comentario = textBox1.Text == "" ? "Deposito realizado por " + Nombres : textBox1.Text;
+                Comentario = textBox1.Text == null ? "Deposito realizado por " + Nombres : textBox1.Text;
                 DataSet dataSet = ASM.TransaccionATercero(NoCuenta, Entidad, 1, ID_TipoTransaccion, DbCr, Comentario, montoTransferenciaTercero);
                 Actualizaciones(dataSet);
             }

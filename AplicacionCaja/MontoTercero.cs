@@ -24,6 +24,7 @@ namespace AplicacionCaja
         private int Entidad;
         private string Nombres;
         private int ID_TipoEntidad;
+        private decimal Monto;
         public MontoTercero()
         {
             InitializeComponent();
@@ -48,18 +49,20 @@ namespace AplicacionCaja
                         Comentario = Comentario == null ? "Transferencia hecha por " + Nombres : Comentario;
                         DataSet dataSet = ASM.TransaccionATercero(NoCuenta, Entidad, ID_TipoEntidad, ID_TipoTransaccion, DbCr, Comentario, monto);
                         Actualizaciones(dataSet);
+                        
                     }
                     if (Form.GetType().ToString() == "AplicacionCaja.Transferencia")
                     {
                         Transferencia transferencia = new Transferencia();
                         transferencia = (Transferencia)Form;
-                        transferencia.RecibirActualizacion(Authentication, monto);
+                        transferencia.RecibirActualizacion(Authentication, Monto);
                     }
                     else
                     {
                         DepositoATerceros deposito = new DepositoATerceros();
                         deposito = (DepositoATerceros)Form;
-                        deposito.RecibirActualizacion(Authentication, monto);
+                        deposito.RecibirActualizacion(Authentication, Monto);
+                       
                         
                     }
                     Form.Enabled = true;
@@ -106,6 +109,28 @@ namespace AplicacionCaja
             AgregarTransacciones(dataSet);
             AgregarPago(dataSet);
             TransaccionProcesada();
+            DeseaHacerReporte();
+            if (Form.GetType().ToString() != "AplicacionCaja.Transferencia")
+            {
+                InsertarCajero(dataSet);
+            }
+
+        }
+        public void InsertarCajero(DataSet dataset)
+        {
+            Cajero cajero = new Cajero();
+            cajero.InsertarTransaccionCaja(int.Parse(dataset.Tables[1].Rows[0][0].ToString()), monto, DbCr);
+            cajero.UpdateCaja(monto, DbCr);
+        }
+        public void DeseaHacerReporte()
+        {
+            DialogResult dialogResult = MessageBox.Show(($"¿Deseas {Nombres} imprimir la transaccion?"), "Reporte", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                Reporte reporte = new Reporte();
+                reporte.EnviarDatos(NoCuenta, Monto, monto, DbCr, ID_TipoTransaccion, Entidad.ToString());
+                reporte.Show();
+            }
         }
         public void ActualizarNoCuenta(DataSet DATASET)
         {
@@ -119,7 +144,7 @@ namespace AplicacionCaja
                     Authentication.Tables[0].Rows[i][2] = Row[2];
                     Authentication.Tables[0].Rows[i][2] = Row[3];
                     Authentication.Tables[0].Rows[i][4] = Row[4];
-                    monto = decimal.Parse(Row[1].ToString());
+                    Monto = decimal.Parse(Row[1].ToString());
                 }
             }
         }

@@ -40,6 +40,15 @@ namespace AplicacionCaja
             reportParameters.Add(new ReportParameter("mensajeCuadre", reducir));
             reportViewer1.LocalReport.SetParameters(reportParameters);
             this.reportViewer1.RefreshReport();
+            DialogResult dialogResult = MessageBox.Show("¿Deseas realizar el cuadre?", "CuadreTransaccional", MessageBoxButtons.YesNo);
+            if(dialogResult == DialogResult.Yes)
+            {
+                int resultado = cajero.Cuadre();
+                if(resultado == 1)
+                {
+                    MessageBox.Show("Realizado el cuadre correctamente");
+                }
+            }
         }
 
         private void CuadreTransaccional_FormClosing(object sender, FormClosingEventArgs e)

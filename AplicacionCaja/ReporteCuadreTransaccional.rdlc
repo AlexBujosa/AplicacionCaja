@@ -1,15 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
   <AutoRefresh>0</AutoRefresh>
-  <DataSources>
-    <DataSource Name="NationalBankCajeroDataSet1">
-      <ConnectionProperties>
-        <DataProvider>System.Data.DataSet</DataProvider>
-        <ConnectString>/* Local Connection */</ConnectString>
-      </ConnectionProperties>
-      <rd:DataSourceID>d9b56328-833d-4bcd-8d75-3145e2580832</rd:DataSourceID>
-    </DataSource>
-  </DataSources>
   <ReportSections>
     <ReportSection>
       <Body>
@@ -29,8 +20,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox16</rd:DefaultName>
-            <Top>1.68056in</Top>
-            <Left>1.09771in</Left>
+            <Top>0.7834in</Top>
+            <Left>1.82872in</Left>
             <Height>0.25in</Height>
             <Width>1in</Width>
             <Style>
@@ -58,7 +49,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox17</rd:DefaultName>
-            <Top>1.68056in</Top>
+            <Top>0.7834in</Top>
+            <Left>0.73101in</Left>
             <Height>0.25in</Height>
             <Width>1in</Width>
             <ZIndex>1</ZIndex>
@@ -87,8 +79,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox17</rd:DefaultName>
-            <Top>1.68056in</Top>
-            <Left>2.36458in</Left>
+            <Top>0.7834in</Top>
+            <Left>3.09559in</Left>
             <Height>0.25in</Height>
             <Width>2.09771in</Width>
             <ZIndex>2</ZIndex>
@@ -102,11 +94,43 @@
               <PaddingBottom>2pt</PaddingBottom>
             </Style>
           </Textbox>
+          <Textbox Name="Textbox20">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>Fin del Dia</Value>
+                    <Style>
+                      <FontSize>16pt</FontSize>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox20</rd:DefaultName>
+            <Top>0.15876in</Top>
+            <Left>2.22679in</Left>
+            <Height>0.35549in</Height>
+            <Width>1.1254in</Width>
+            <ZIndex>3</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
         </ReportItems>
-        <Height>2in</Height>
+        <Height>1.43249in</Height>
         <Style />
       </Body>
-      <Width>6.5in</Width>
+      <Width>5.91021in</Width>
       <Page>
         <PageHeader>
           <Height>1in</Height>
@@ -131,7 +155,7 @@
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
               <Top>0.11458in</Top>
-              <Left>0.16146in</Left>
+              <Left>0.375in</Left>
               <Height>0.77083in</Height>
               <Width>2.625in</Width>
               <Style>
@@ -160,7 +184,7 @@
               </Paragraphs>
               <rd:DefaultName>Textbox14</rd:DefaultName>
               <Top>0.33208in</Top>
-              <Left>4.35292in</Left>
+              <Left>3.98313in</Left>
               <Height>0.25in</Height>
               <Width>1.92708in</Width>
               <ZIndex>1</ZIndex>
@@ -204,7 +228,7 @@
               </Paragraphs>
               <rd:DefaultName>Textbox15</rd:DefaultName>
               <Top>0.33208in</Top>
-              <Left>1.97792in</Left>
+              <Left>1.97047in</Left>
               <Height>0.34375in</Height>
               <Width>2.09375in</Width>
               <Style>
