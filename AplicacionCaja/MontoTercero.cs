@@ -60,6 +60,7 @@ namespace AplicacionCaja
                         DepositoATerceros deposito = new DepositoATerceros();
                         deposito = (DepositoATerceros)Form;
                         deposito.RecibirActualizacion(Authentication, monto);
+                        
                     }
                     Form.Enabled = true;
                     this.Dispose();

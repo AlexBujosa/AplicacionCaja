@@ -43,7 +43,7 @@ namespace AplicacionCaja
                 if (int.Parse(table.Rows[i][0].ToString()) == NoCuenta)
                     row = table.Rows[i];
             }
-            DbCr = 0;
+            DbCr = 2;
             ID_TipoTransaccion = 2;
             IntegracionASMXSoapClient ASM = new IntegracionASMXSoapClient();
             data = ASM.ObtenerTodasCuentasDiferentes(int.Parse(Authentication.Tables[1].Rows[0][0].ToString()));
@@ -133,7 +133,7 @@ namespace AplicacionCaja
             DialogResult dialogResult = MessageBox.Show("¿Realmente deseas realizar esta transacción?", "Transaccion A Terceros", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-                Comentario = textBox1.Text == "" ? "Deposito realizado por " + Nombres : textBox1.Text;
+                Comentario = textBox1.Text == null ? "Deposito realizado por " + Nombres : textBox1.Text;
                 DataSet dataSet = ASM.TransaccionATercero(NoCuenta, Entidad, 1, ID_TipoTransaccion, DbCr, Comentario, montoDeposito);
                 Actualizaciones(dataSet);
             }
@@ -200,6 +200,7 @@ namespace AplicacionCaja
             MontoTercero montoTercero = new MontoTercero();
             montoTercero.EnviarDatos(this, row, Authentication, NoCuenta, Entidad, ID_TipoEntidad, ID_TipoTransaccion, DbCr, Comentario, Nombres);
             montoTercero.Show();
+            timer1.Stop();
             this.Enabled = false;
         }
         public void ChargeCmbx()
@@ -227,19 +228,27 @@ namespace AplicacionCaja
         }
         public void Actualizaciones(DataSet dataSet)
         {
-            ActualizarNoCuenta(dataSet);
-            AgregarTransacciones(dataSet);
-            AgregarPago(dataSet);
-            TransaccionProcesada();
-            comboBox1.SelectedItem = comboBox1.Items[0];
-            DeseaHacerReporte();
-            InsertarCajero(data);
+            try
+            {
+                comboBox1.SelectedItem = comboBox1.Items[0];
+                ActualizarNoCuenta(dataSet);
+                AgregarTransacciones(dataSet);
+                AgregarPago(dataSet);
+                TransaccionProcesada();
+                DeseaHacerReporte();
+                InsertarCajero(dataSet);
+            }
+            catch (Exception)
+            {
+                TransaccionNoProcesada();
+            }
+            
             
         }
-        public void InsertarCajero(DataSet data)
+        public void InsertarCajero(DataSet dataset)
         {
             Cajero cajero = new Cajero();
-            cajero.InsertarTransaccionCaja(int.Parse(data.Tables[1].Rows[0][0].ToString()), montoDeposito, DbCr);
+            cajero.InsertarTransaccionCaja(int.Parse(dataset.Tables[1].Rows[0][0].ToString()), montoDeposito, DbCr);
             cajero.UpdateCaja(montoDeposito, DbCr);
         }
         public void DeseaHacerReporte()
@@ -289,6 +298,9 @@ namespace AplicacionCaja
             Authentication = Auth;
             Monto = monto;
             valor = comboBox1.SelectedItem.ToString();
+            comboBox1.SelectedItem = comboBox1.Items[0];
+            System.Threading.Thread.Sleep(5000);
+            timer1.Start();
         }
         private void comboBox1_SelectedValueChanged(object sender, EventArgs e)
         {

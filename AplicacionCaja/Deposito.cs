@@ -117,6 +117,7 @@ namespace AplicacionCaja
         {
             Authentication = Auth;
             row = Row;
+            
         }
         public void ActualizarAuth(DataSet data)
         {
