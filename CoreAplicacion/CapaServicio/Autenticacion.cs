@@ -34,6 +34,14 @@ namespace CoreAplicacion.CapaServicio
         }
         public DataSet TodoslosDatosCliente(int ID_Cliente)
         {
+            //string storedProcedureName = "";
+            //string[] stored = { "ppGetAll", "ppGetAllNet" };
+            //if (Aplicacion == "NetBanking")
+            //{
+            //    storedProcedureName = stored[1];
+            //}
+            //else
+            //    storedProcedureName = stored[0];
             DataSet Auth = new DataSet();
             sqlCommand = new SqlCommand();
             sqlCommand.CommandText = "ppGetAll";

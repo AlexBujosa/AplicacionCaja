@@ -30,6 +30,7 @@ namespace AplicacionCaja
         private int Entidad;
         private int ID_TipoEntidad;
         private string Tercero;
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         public DepositoATerceros()
         {
             InitializeComponent();
@@ -249,6 +250,9 @@ namespace AplicacionCaja
                 TransaccionProcesada();
                 DeseaHacerReporte();
                 InsertarCajero(dataSet);
+                Cajero cajero = new Cajero();
+                log.Info($"El usuario {Authentication.Tables[2].Rows[0][1]} ha depositado {montoDeposito} a {label5.Text}. Numero de Cajero: {cajero.ID_Cajero} Hora: {DateTime.Now}   ");
+
             }
             catch (Exception)
             {
@@ -262,6 +266,7 @@ namespace AplicacionCaja
             Cajero cajero = new Cajero();
             cajero.InsertarTransaccionCaja(int.Parse(dataset.Tables[1].Rows[0][0].ToString()), montoDeposito, DbCr);
             cajero.UpdateCaja(montoDeposito, DbCr);
+            log.Info($"Se ha registrado el deposito realizo por {Authentication.Tables[2].Rows[0][1]} a {label5.Text}. Hora: {DateTime.Now}");
         }
         public void DeseaHacerReporte()
         {
@@ -271,6 +276,9 @@ namespace AplicacionCaja
                 Reporte reporte = new Reporte();
                 reporte.EnviarDatos(NoCuenta, Monto, montoDeposito, DbCr, ID_TipoTransaccion, Tercero);
                 reporte.Show();
+                Cajero cajero = new Cajero();
+                log.Info($"El usuario ha {Authentication.Tables[2].Rows[0][1]} realizado el reporte del deposito {montoDeposito} a {label5.Text} Hora: {DateTime.Now} Cajero: {cajero.ID_Cajero}");
+                
             }
         }
         public void ActualizarNoCuenta(DataSet DATASET)
@@ -362,6 +370,11 @@ namespace AplicacionCaja
         private void CerrarSesion_MouseHover(object sender, EventArgs e)
         {
             Cursor.Current = Cursors.Hand;
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

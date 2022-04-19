@@ -17,6 +17,7 @@ namespace AplicacionCaja
         string usuario, clave;
         int pin;
         Form1 Form;
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         public Pin()
         {
             InitializeComponent();
@@ -33,7 +34,9 @@ namespace AplicacionCaja
                 Auth = ASM.Autenticacion(usuario, clave, pin);
                 if (Auth.Tables[2].Rows.Count > 0)
                 {
-                    if(Auth.Tables[2].Rows[0][2].ToString() == "Admin")
+                    Cajero cajero = new Cajero();
+                    log.Info($"Usuario {Auth.Tables[2].Rows[0][1]} ha ingresado exitosamente. Hora: {DateTime.Now} Numero del cajero: {cajero.ID_Cajero} ");
+                    if (Auth.Tables[2].Rows[0][2].ToString() == "Admin")
                     {
                         CuadreTransaccional cuadre = new CuadreTransaccional();
                         cuadre.Show();

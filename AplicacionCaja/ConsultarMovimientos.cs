@@ -15,6 +15,7 @@ namespace AplicacionCaja
         public RDPT RDPT;
         public DataSet Authentication;
         public int NoCuenta;
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         public ConsultarMovimientos()
         {
             InitializeComponent();
@@ -27,6 +28,7 @@ namespace AplicacionCaja
 
         private void ConsultarMovimientos_Load(object sender, EventArgs e)
         {
+          
             string[] TiposTransacciones = { "TransferenciaTercero", "DepositoTercero", "PagoPrestamo", "Deposito", "Retiro"};
             var joinResult = (from p in Authentication.Tables[4].AsEnumerable()
                               join t in Authentication.Tables[3].AsEnumerable()
@@ -55,6 +57,8 @@ namespace AplicacionCaja
 
             dataGridView1.DataSource = joinResult;
             dataGridView2.DataSource = joinResultRD;
+            Cajero cajero = new Cajero();
+            log.Info($"El usuario ha {Authentication.Tables[2].Rows[0][1]} ha consultado los movimientos de su cuenta. Hora: {DateTime.Now} Cajero: {cajero.ID_Cajero}");
         }
         public void EnviarDatos(RDPT rdpt, DataSet auth, int noCuenta)
         {

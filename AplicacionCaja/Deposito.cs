@@ -24,6 +24,7 @@ namespace AplicacionCaja
         private decimal montoDeposito;
         private int ID_TipoTransaccion;
         private string Comentario;
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         public Deposito()
         {
             InitializeComponent();
@@ -140,24 +141,32 @@ namespace AplicacionCaja
                 TransaccionProcesada();
                 DeseaHacerReporte();
                 InsertarCajero(data);
+                Cajero cajero = new Cajero();
+                log.Info($"El usuario {Authentication.Tables[2].Rows[0][1]} ha depositado {montoDeposito}. Numero de Cajero: {cajero.ID_Cajero} Hora: {DateTime.Now}   ");
                 
             }
             catch(Exception){
                 TransaccionNoProcesada();
+                log.Fatal($"El usuario {Authentication.Tables[2].Rows[0][1]} no ha podido realizar la transaccion. Hora: {DateTime.Now}   ");
+
             }
             
         }
         public void InsertarCajero(DataSet data)
         {
             Cajero cajero = new Cajero();
+            
             cajero.InsertarTransaccionCaja(int.Parse(data.Tables[1].Rows[0][0].ToString()), montoDeposito, DbCr);
             cajero.UpdateCaja(montoDeposito, DbCr);
+            log.Info($"Se ha registrado el deposito realizo por {Authentication.Tables[2].Rows[0][1]}. Hora: {DateTime.Now}");
         }
         public void DeseaHacerReporte()
         {
             DialogResult dialogResult = MessageBox.Show(($"¿Deseas {Nombres} imprimir la transaccion?"), "Reporte", MessageBoxButtons.YesNo);
             if(dialogResult == DialogResult.Yes)
             {
+                Cajero cajero = new Cajero();
+                log.Info($"El usuario ha {Authentication.Tables[2].Rows[0][1]} realizado el reporte del deposito {montoDeposito} Hora: {DateTime.Now} Cajero: {cajero.ID_Cajero}");
                 Reporte reporte = new Reporte();
                 reporte.EnviarDatos(NoCuenta, Monto, montoDeposito, DbCr, ID_TipoTransaccion);
                 reporte.Show();
