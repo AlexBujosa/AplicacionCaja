@@ -53,7 +53,7 @@ namespace AplicacionCaja
                     MessageBox.Show("No tiene dinero suficiente para retirar");
                 else
                 {
-                    DataSet data = ASM.Transaccion(ID_TipoTransaccion, DbCr, Comentario, NoCuenta, montoRetiro);
+                    DataSet data = ASM.Transaccion(ID_TipoTransaccion, DbCr, Comentario, NoCuenta, montoRetiro, "Droog ethereal develop 269138");
                     ActualizarAuth(data);
                 }
             }
@@ -73,7 +73,7 @@ namespace AplicacionCaja
                     MessageBox.Show("No tiene dinero suficiente para retirar");
                 else
                 {
-                    DataSet data = ASM.Transaccion(ID_TipoTransaccion, DbCr, Comentario, NoCuenta, montoRetiro);
+                    DataSet data = ASM.Transaccion(ID_TipoTransaccion, DbCr, Comentario, NoCuenta, montoRetiro, "Droog ethereal develop 269138");
                     ActualizarAuth(data);
                 }
             }
@@ -92,7 +92,7 @@ namespace AplicacionCaja
                     MessageBox.Show("No tiene dinero suficiente para retirar");
                 else
                 {
-                    DataSet data = ASM.Transaccion(ID_TipoTransaccion, DbCr, Comentario, NoCuenta, montoRetiro);
+                    DataSet data = ASM.Transaccion(ID_TipoTransaccion, DbCr, Comentario, NoCuenta, montoRetiro, "Droog ethereal develop 269138");
                     ActualizarAuth(data);
                 }
             }
@@ -112,7 +112,7 @@ namespace AplicacionCaja
                     MessageBox.Show("No tiene dinero suficiente para retirar");
                 else
                 {
-                    DataSet data = ASM.Transaccion(ID_TipoTransaccion, DbCr, Comentario, NoCuenta, montoRetiro);
+                    DataSet data = ASM.Transaccion(ID_TipoTransaccion, DbCr, Comentario, NoCuenta, montoRetiro, "Droog ethereal develop 269138");
                     ActualizarAuth(data);
                 }
             }
@@ -132,7 +132,7 @@ namespace AplicacionCaja
                     MessageBox.Show("No tiene dinero suficiente para retirar");
                 else
                 {
-                    DataSet data = ASM.Transaccion(ID_TipoTransaccion, DbCr, Comentario, NoCuenta, montoRetiro);
+                    DataSet data = ASM.Transaccion(ID_TipoTransaccion, DbCr, Comentario, NoCuenta, montoRetiro, "Droog ethereal develop 269138");
                     ActualizarAuth(data);
                 }
             }

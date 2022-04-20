@@ -134,7 +134,7 @@ namespace AplicacionCaja
             if (dialogResult == DialogResult.Yes)
             {
                 Comentario = textBox1.Text == null ? "Deposito realizado por " + Nombres : textBox1.Text;
-                DataSet dataSet = ASM.TransaccionATercero(NoCuenta, Entidad, 1, ID_TipoTransaccion, DbCr, Comentario, montoTransferenciaTercero);
+                DataSet dataSet = ASM.TransaccionATercero(NoCuenta, Entidad, 1, ID_TipoTransaccion, DbCr, Comentario, montoTransferenciaTercero, "Droog ethereal develop 269138");
                 Actualizaciones(dataSet);
             }
         }
@@ -148,7 +148,7 @@ namespace AplicacionCaja
             if (dialogResult == DialogResult.Yes)
             {
                 Comentario = textBox1.Text == null ? "Deposito realizado por " + Nombres : textBox1.Text;
-                DataSet dataSet = ASM.TransaccionATercero(NoCuenta, Entidad, 1, ID_TipoTransaccion, DbCr, Comentario, montoTransferenciaTercero);
+                DataSet dataSet = ASM.TransaccionATercero(NoCuenta, Entidad, 1, ID_TipoTransaccion, DbCr, Comentario, montoTransferenciaTercero, "Droog ethereal develop 269138");
                 Actualizaciones(dataSet);
             }
         }
@@ -162,7 +162,7 @@ namespace AplicacionCaja
             if (dialogResult == DialogResult.Yes)
             {
                 Comentario = textBox1.Text == null ? "Deposito realizado por " + Nombres : textBox1.Text;
-                DataSet dataSet = ASM.TransaccionATercero(NoCuenta, Entidad, 1, ID_TipoTransaccion, DbCr, Comentario, montoTransferenciaTercero);
+                DataSet dataSet = ASM.TransaccionATercero(NoCuenta, Entidad, 1, ID_TipoTransaccion, DbCr, Comentario, montoTransferenciaTercero, "Droog ethereal develop 269138");
                 Actualizaciones(dataSet);
             }
         }
@@ -176,7 +176,7 @@ namespace AplicacionCaja
             if (dialogResult == DialogResult.Yes)
             {
                 Comentario = textBox1.Text == null ? "Deposito realizado por " + Nombres : textBox1.Text;
-                DataSet dataSet = ASM.TransaccionATercero(NoCuenta, Entidad, 1, ID_TipoTransaccion, DbCr, Comentario, montoTransferenciaTercero);
+                DataSet dataSet = ASM.TransaccionATercero(NoCuenta, Entidad, 1, ID_TipoTransaccion, DbCr, Comentario, montoTransferenciaTercero, "Droog ethereal develop 269138");
                 Actualizaciones(dataSet);
             }
         }
@@ -190,7 +190,7 @@ namespace AplicacionCaja
             if (dialogResult == DialogResult.Yes)
             {
                 Comentario = textBox1.Text == null ? "Deposito realizado por " + Nombres.ToString() : textBox1.Text;
-                DataSet dataSet = ASM.TransaccionATercero(NoCuenta, Entidad, 1, ID_TipoTransaccion, DbCr, Comentario, montoTransferenciaTercero);
+                DataSet dataSet = ASM.TransaccionATercero(NoCuenta, Entidad, 1, ID_TipoTransaccion, DbCr, Comentario, montoTransferenciaTercero, "Droog ethereal develop 269138");
                 Actualizaciones(dataSet);
             }
         }
@@ -294,7 +294,7 @@ namespace AplicacionCaja
             DbCr = 0;
             ID_TipoTransaccion = 1;
             IntegracionASMXSoapClient ASM = new IntegracionASMXSoapClient();
-            data = ASM.ObtenerTodasCuentasDiferentes(int.Parse(Authentication.Tables[1].Rows[0][0].ToString()));
+            data = ASM.ObtenerTodasCuentasDiferentes(int.Parse(Authentication.Tables[1].Rows[0][0].ToString()), "Droog ethereal develop 269138");
             ChargeCmbx();
             comboBox1.SelectedItem = comboBox1.Items[0];
         }

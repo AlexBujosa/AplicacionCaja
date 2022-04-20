@@ -59,7 +59,7 @@ namespace AplicacionCaja
                     MessageBox.Show("Error: No montos menores que 0");
                 else
                 {
-                    DataSet data = ASM.Transaccion(ID_TipoTransaccion, DbCr, Comentario, NoCuenta, monto);
+                    DataSet data = ASM.Transaccion(ID_TipoTransaccion, DbCr, Comentario, NoCuenta, monto, "Droog ethereal develop 269138");
                     if (Form.GetType().ToString() == "AplicacionCaja.Deposito")
                     {
                         Deposito deposito = new Deposito();

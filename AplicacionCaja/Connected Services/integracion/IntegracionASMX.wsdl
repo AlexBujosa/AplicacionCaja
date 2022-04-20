@@ -2,28 +2,13 @@
 <wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://integracion.somee.com/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://integracion.somee.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
   <wsdl:types>
     <s:schema elementFormDefault="qualified" targetNamespace="http://integracion.somee.com/">
-      <s:element name="HelloWorld">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="usuario" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="contraseña" type="s:string" />
-            <s:element minOccurs="1" maxOccurs="1" name="pin" type="s:int" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="HelloWorldResponse">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="HelloWorldResult" type="s:string" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
       <s:element name="Autenticacion">
         <s:complexType>
           <s:sequence>
             <s:element minOccurs="0" maxOccurs="1" name="usuario" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="contraseña" type="s:string" />
             <s:element minOccurs="1" maxOccurs="1" name="pin" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="clave" type="s:string" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -49,6 +34,7 @@
             <s:element minOccurs="0" maxOccurs="1" name="Comentario" type="s:string" />
             <s:element minOccurs="1" maxOccurs="1" name="NoCuenta" type="s:int" />
             <s:element minOccurs="1" maxOccurs="1" name="Monto" type="s:decimal" />
+            <s:element minOccurs="0" maxOccurs="1" name="clave" type="s:string" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -70,6 +56,7 @@
         <s:complexType>
           <s:sequence>
             <s:element minOccurs="1" maxOccurs="1" name="ID_Cliente" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="clave" type="s:string" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -97,6 +84,7 @@
             <s:element minOccurs="1" maxOccurs="1" name="DbCr" type="s:int" />
             <s:element minOccurs="0" maxOccurs="1" name="Comentario" type="s:string" />
             <s:element minOccurs="1" maxOccurs="1" name="Monto" type="s:decimal" />
+            <s:element minOccurs="0" maxOccurs="1" name="clave" type="s:string" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -114,14 +102,27 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="InsertarBeneficiario">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ID_Beneficiario" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="NoCuenta" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="ID_TipoBeneficiario" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Nombre" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ID_Cliente" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="clave" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertarBeneficiarioResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="InsertarBeneficiarioResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
     </s:schema>
   </wsdl:types>
-  <wsdl:message name="HelloWorldSoapIn">
-    <wsdl:part name="parameters" element="tns:HelloWorld" />
-  </wsdl:message>
-  <wsdl:message name="HelloWorldSoapOut">
-    <wsdl:part name="parameters" element="tns:HelloWorldResponse" />
-  </wsdl:message>
   <wsdl:message name="AutenticacionSoapIn">
     <wsdl:part name="parameters" element="tns:Autenticacion" />
   </wsdl:message>
@@ -146,11 +147,13 @@
   <wsdl:message name="TransaccionATerceroSoapOut">
     <wsdl:part name="parameters" element="tns:TransaccionATerceroResponse" />
   </wsdl:message>
+  <wsdl:message name="InsertarBeneficiarioSoapIn">
+    <wsdl:part name="parameters" element="tns:InsertarBeneficiario" />
+  </wsdl:message>
+  <wsdl:message name="InsertarBeneficiarioSoapOut">
+    <wsdl:part name="parameters" element="tns:InsertarBeneficiarioResponse" />
+  </wsdl:message>
   <wsdl:portType name="IntegracionASMXSoap">
-    <wsdl:operation name="HelloWorld">
-      <wsdl:input message="tns:HelloWorldSoapIn" />
-      <wsdl:output message="tns:HelloWorldSoapOut" />
-    </wsdl:operation>
     <wsdl:operation name="Autenticacion">
       <wsdl:input message="tns:AutenticacionSoapIn" />
       <wsdl:output message="tns:AutenticacionSoapOut" />
@@ -167,18 +170,13 @@
       <wsdl:input message="tns:TransaccionATerceroSoapIn" />
       <wsdl:output message="tns:TransaccionATerceroSoapOut" />
     </wsdl:operation>
+    <wsdl:operation name="InsertarBeneficiario">
+      <wsdl:input message="tns:InsertarBeneficiarioSoapIn" />
+      <wsdl:output message="tns:InsertarBeneficiarioSoapOut" />
+    </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="IntegracionASMXSoap" type="tns:IntegracionASMXSoap">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <wsdl:operation name="HelloWorld">
-      <soap:operation soapAction="http://integracion.somee.com/HelloWorld" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
     <wsdl:operation name="Autenticacion">
       <soap:operation soapAction="http://integracion.somee.com/Autenticacion" style="document" />
       <wsdl:input>
@@ -215,18 +213,18 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="InsertarBeneficiario">
+      <soap:operation soapAction="http://integracion.somee.com/InsertarBeneficiario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="IntegracionASMXSoap12" type="tns:IntegracionASMXSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <wsdl:operation name="HelloWorld">
-      <soap12:operation soapAction="http://integracion.somee.com/HelloWorld" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
     <wsdl:operation name="Autenticacion">
       <soap12:operation soapAction="http://integracion.somee.com/Autenticacion" style="document" />
       <wsdl:input>
@@ -256,6 +254,15 @@
     </wsdl:operation>
     <wsdl:operation name="TransaccionATercero">
       <soap12:operation soapAction="http://integracion.somee.com/TransaccionATercero" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertarBeneficiario">
+      <soap12:operation soapAction="http://integracion.somee.com/InsertarBeneficiario" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

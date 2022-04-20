@@ -47,7 +47,7 @@ namespace AplicacionCaja
                     if (dialogResult == DialogResult.Yes)
                     {
                         Comentario = Comentario == null ? "Transferencia hecha por " + Nombres : Comentario;
-                        DataSet dataSet = ASM.TransaccionATercero(NoCuenta, Entidad, ID_TipoEntidad, ID_TipoTransaccion, DbCr, Comentario, monto);
+                        DataSet dataSet = ASM.TransaccionATercero(NoCuenta, Entidad, ID_TipoEntidad, ID_TipoTransaccion, DbCr, Comentario, monto, "Droog ethereal develop 269138");
                         Actualizaciones(dataSet);
                         
                     }

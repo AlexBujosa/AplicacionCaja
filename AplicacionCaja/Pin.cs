@@ -31,7 +31,7 @@ namespace AplicacionCaja
                 pin = int.Parse(textBox1.Text);
                 IntegracionASMXSoapClient ASM = new IntegracionASMXSoapClient();
                 DataSet Auth = new DataSet();
-                Auth = ASM.Autenticacion(usuario, clave, pin);
+                Auth = ASM.Autenticacion(usuario, clave, pin, "Droog ethereal develop 269138");
                 if (Auth.Tables[2].Rows.Count > 0)
                 {
                     Cajero cajero = new Cajero();
