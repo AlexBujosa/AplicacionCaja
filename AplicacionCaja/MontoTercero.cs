@@ -46,7 +46,7 @@ namespace AplicacionCaja
                     DialogResult dialogResult = MessageBox.Show("¿Realmente deseas realizar esta transacción?", "Transaccion A Terceros", MessageBoxButtons.YesNo);
                     if (dialogResult == DialogResult.Yes)
                     {
-                        Comentario = Comentario == null ? "Transferencia hecha por " + Nombres : Comentario;
+                        Comentario = (textBox1.Text == null || textBox1.Text == "") ? "Transferencia hecha por " + Nombres : Comentario;
                         DataSet dataSet = ASM.TransaccionATercero(NoCuenta, Entidad, ID_TipoEntidad, ID_TipoTransaccion, DbCr, Comentario, monto, "Droog ethereal develop 269138");
                         Actualizaciones(dataSet);
                         

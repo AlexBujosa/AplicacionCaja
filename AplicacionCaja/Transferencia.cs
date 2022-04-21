@@ -133,7 +133,7 @@ namespace AplicacionCaja
             DialogResult dialogResult = MessageBox.Show("¿Realmente deseas realizar esta transacción?", "Transaccion A Terceros", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-                Comentario = textBox1.Text == null ? "Deposito realizado por " + Nombres : textBox1.Text;
+                Comentario = (textBox1.Text == null || textBox1.Text == "") ? "Transferencia realizado por " + Nombres : textBox1.Text;
                 DataSet dataSet = ASM.TransaccionATercero(NoCuenta, Entidad, 1, ID_TipoTransaccion, DbCr, Comentario, montoTransferenciaTercero, "Droog ethereal develop 269138");
                 Actualizaciones(dataSet);
             }
@@ -147,7 +147,7 @@ namespace AplicacionCaja
             DialogResult dialogResult = MessageBox.Show("¿Realmente deseas realizar esta transacción?", "Transaccion A Terceros", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-                Comentario = textBox1.Text == null ? "Deposito realizado por " + Nombres : textBox1.Text;
+                Comentario = (textBox1.Text == null || textBox1.Text == "") ? "Transferencia realizado por " + Nombres : textBox1.Text;
                 DataSet dataSet = ASM.TransaccionATercero(NoCuenta, Entidad, 1, ID_TipoTransaccion, DbCr, Comentario, montoTransferenciaTercero, "Droog ethereal develop 269138");
                 Actualizaciones(dataSet);
             }
@@ -161,7 +161,7 @@ namespace AplicacionCaja
             DialogResult dialogResult = MessageBox.Show("¿Realmente deseas realizar esta transacción?", "Transaccion A Terceros", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-                Comentario = textBox1.Text == null ? "Deposito realizado por " + Nombres : textBox1.Text;
+                Comentario = (textBox1.Text == null || textBox1.Text == "") ? "Transferencia realizado por " + Nombres : textBox1.Text;
                 DataSet dataSet = ASM.TransaccionATercero(NoCuenta, Entidad, 1, ID_TipoTransaccion, DbCr, Comentario, montoTransferenciaTercero, "Droog ethereal develop 269138");
                 Actualizaciones(dataSet);
             }
@@ -175,7 +175,7 @@ namespace AplicacionCaja
             DialogResult dialogResult = MessageBox.Show("¿Realmente deseas realizar esta transacción?", "Transaccion A Terceros", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-                Comentario = textBox1.Text == null ? "Deposito realizado por " + Nombres : textBox1.Text;
+                Comentario = (textBox1.Text == null || textBox1.Text == "") ? "Transferencia realizado por " + Nombres : textBox1.Text;
                 DataSet dataSet = ASM.TransaccionATercero(NoCuenta, Entidad, 1, ID_TipoTransaccion, DbCr, Comentario, montoTransferenciaTercero, "Droog ethereal develop 269138");
                 Actualizaciones(dataSet);
             }
@@ -189,7 +189,7 @@ namespace AplicacionCaja
             DialogResult dialogResult = MessageBox.Show("¿Realmente deseas realizar esta transacción?", "Transaccion A Terceros", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-                Comentario = textBox1.Text == null ? "Deposito realizado por " + Nombres.ToString() : textBox1.Text;
+                Comentario = (textBox1.Text == null || textBox1.Text == "") ? "Transferencia realizado por " + Nombres.ToString() : textBox1.Text;
                 DataSet dataSet = ASM.TransaccionATercero(NoCuenta, Entidad, 1, ID_TipoTransaccion, DbCr, Comentario, montoTransferenciaTercero, "Droog ethereal develop 269138");
                 Actualizaciones(dataSet);
             }
@@ -198,6 +198,7 @@ namespace AplicacionCaja
         private void button6_Click(object sender, EventArgs e)
         {
             MontoTercero montoTercero = new MontoTercero();
+            Comentario = (textBox1.Text == null || textBox1.Text == "") ? "Transferencia realizado por " + Nombres.ToString() : textBox1.Text;
             montoTercero.EnviarDatos(this, row, Authentication, NoCuenta, Entidad, ID_TipoEntidad, ID_TipoTransaccion, DbCr, Comentario, Nombres);
             montoTercero.Show();
             this.Enabled = false;
