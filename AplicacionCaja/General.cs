@@ -117,6 +117,10 @@ namespace AplicacionCaja
         public void RecibirActualizacion(DataSet Auth)
         {
             Authentication = Auth;
+            for(int i = 0; i<Authentication.Tables[0].Rows.Count; i++)
+            {
+                Monto[i] = decimal.Parse(Authentication.Tables[0].Rows[i][1].ToString());
+            }
         }
 
         private void CerrarSesion_MouseHover(object sender, EventArgs e)

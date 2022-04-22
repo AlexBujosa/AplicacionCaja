@@ -60,6 +60,9 @@
     <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
@@ -105,6 +108,7 @@
     <Compile Include="CuadreTransaccional.Designer.cs">
       <DependentUpon>CuadreTransaccional.cs</DependentUpon>
     </Compile>
+    <Compile Include="CuotasPrestamos.cs" />
     <Compile Include="Deposito.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -165,11 +169,23 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>NationalBankCajeroDataSet1.xsd</DependentUpon>
     </Compile>
+    <Compile Include="pagoPrestamo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="pagoPrestamo.Designer.cs">
+      <DependentUpon>pagoPrestamo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Pin.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Pin.Designer.cs">
       <DependentUpon>Pin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Prestamo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Prestamo.Designer.cs">
+      <DependentUpon>Prestamo.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -228,8 +244,14 @@
     <EmbeddedResource Include="MontoTercero.resx">
       <DependentUpon>MontoTercero.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="pagoPrestamo.resx">
+      <DependentUpon>pagoPrestamo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Pin.resx">
       <DependentUpon>Pin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Prestamo.resx">
+      <DependentUpon>Prestamo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

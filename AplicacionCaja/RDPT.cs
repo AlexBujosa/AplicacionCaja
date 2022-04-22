@@ -86,6 +86,11 @@ namespace AplicacionCaja
 
         private void button3_Click(object sender, EventArgs e)
         {
+            pagoPrestamo PagoPrestamo = new pagoPrestamo();
+            this.Visible = false;
+            PagoPrestamo.EnviarDatos(this, ID_TipoCuenta, NoCuenta, Authentication, Nombres, Monto);
+            PagoPrestamo.AgregarBotones();
+            PagoPrestamo.Show(); 
 
         }
 
@@ -99,7 +104,6 @@ namespace AplicacionCaja
 
         private void CerrarSesion_Click(object sender, EventArgs e)
         {
-            General.Dispose();
             CerrarSesion sesion = new CerrarSesion();
             sesion.EnviarDatos(this);
             sesion.Show();
@@ -107,6 +111,7 @@ namespace AplicacionCaja
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
+            General.RecibirActualizacion(Authentication);
             General.Show();
             this.Dispose();
         }
