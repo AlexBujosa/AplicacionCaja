@@ -23,6 +23,13 @@ namespace AplicacionCaja.integracion {
         [System.ServiceModel.OperationContractAttribute(Action="http://integracion.somee.com/Autenticacion", ReplyAction="*")]
         System.Threading.Tasks.Task<System.Data.DataSet> AutenticacionAsync(string usuario, string contraseña, int pin, string clave);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://integracion.somee.com/AutenticacionCedula", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataSet AutenticacionCedula(string usuario, string contraseña, string cedula, string clave);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://integracion.somee.com/AutenticacionCedula", ReplyAction="*")]
+        System.Threading.Tasks.Task<System.Data.DataSet> AutenticacionCedulaAsync(string usuario, string contraseña, string cedula, string clave);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://integracion.somee.com/Transaccion", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         System.Data.DataSet Transaccion(int ID_TipoTransaccion, int DbCr, string Comentario, int NoCuenta, decimal Monto, string clave);
@@ -46,10 +53,10 @@ namespace AplicacionCaja.integracion {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://integracion.somee.com/InsertarBeneficiario", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        bool InsertarBeneficiario(int ID_Beneficiario, int NoCuenta, int ID_TipoBeneficiario, string Nombre, int ID_Cliente, string clave);
+        bool InsertarBeneficiario(int NoCuenta, int ID_TipoBeneficiario, string Nombre, int ID_Cliente, string clave);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://integracion.somee.com/InsertarBeneficiario", ReplyAction="*")]
-        System.Threading.Tasks.Task<bool> InsertarBeneficiarioAsync(int ID_Beneficiario, int NoCuenta, int ID_TipoBeneficiario, string Nombre, int ID_Cliente, string clave);
+        System.Threading.Tasks.Task<bool> InsertarBeneficiarioAsync(int NoCuenta, int ID_TipoBeneficiario, string Nombre, int ID_Cliente, string clave);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -87,6 +94,14 @@ namespace AplicacionCaja.integracion {
             return base.Channel.AutenticacionAsync(usuario, contraseña, pin, clave);
         }
         
+        public System.Data.DataSet AutenticacionCedula(string usuario, string contraseña, string cedula, string clave) {
+            return base.Channel.AutenticacionCedula(usuario, contraseña, cedula, clave);
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataSet> AutenticacionCedulaAsync(string usuario, string contraseña, string cedula, string clave) {
+            return base.Channel.AutenticacionCedulaAsync(usuario, contraseña, cedula, clave);
+        }
+        
         public System.Data.DataSet Transaccion(int ID_TipoTransaccion, int DbCr, string Comentario, int NoCuenta, decimal Monto, string clave) {
             return base.Channel.Transaccion(ID_TipoTransaccion, DbCr, Comentario, NoCuenta, Monto, clave);
         }
@@ -111,12 +126,12 @@ namespace AplicacionCaja.integracion {
             return base.Channel.TransaccionATerceroAsync(NoCuenta, Entidad, ID_TipoEntidad, ID_TipoTransaccion, DbCr, Comentario, Monto, clave);
         }
         
-        public bool InsertarBeneficiario(int ID_Beneficiario, int NoCuenta, int ID_TipoBeneficiario, string Nombre, int ID_Cliente, string clave) {
-            return base.Channel.InsertarBeneficiario(ID_Beneficiario, NoCuenta, ID_TipoBeneficiario, Nombre, ID_Cliente, clave);
+        public bool InsertarBeneficiario(int NoCuenta, int ID_TipoBeneficiario, string Nombre, int ID_Cliente, string clave) {
+            return base.Channel.InsertarBeneficiario(NoCuenta, ID_TipoBeneficiario, Nombre, ID_Cliente, clave);
         }
         
-        public System.Threading.Tasks.Task<bool> InsertarBeneficiarioAsync(int ID_Beneficiario, int NoCuenta, int ID_TipoBeneficiario, string Nombre, int ID_Cliente, string clave) {
-            return base.Channel.InsertarBeneficiarioAsync(ID_Beneficiario, NoCuenta, ID_TipoBeneficiario, Nombre, ID_Cliente, clave);
+        public System.Threading.Tasks.Task<bool> InsertarBeneficiarioAsync(int NoCuenta, int ID_TipoBeneficiario, string Nombre, int ID_Cliente, string clave) {
+            return base.Channel.InsertarBeneficiarioAsync(NoCuenta, ID_TipoBeneficiario, Nombre, ID_Cliente, clave);
         }
     }
 }

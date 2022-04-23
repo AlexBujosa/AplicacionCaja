@@ -26,12 +26,11 @@ namespace AplicacionCaja
         private void button1_Click(object sender, EventArgs e)
         {
             int vr;
-            if (textBox1.TextLength == 4 && int.TryParse(textBox1.Text, out vr))
+            if (textBox1.TextLength == 11)
             {
-                pin = int.Parse(textBox1.Text);
                 IntegracionASMXSoapClient ASM = new IntegracionASMXSoapClient();
                 DataSet Auth = new DataSet();
-                Auth = ASM.Autenticacion(usuario, clave, pin, "Droog ethereal develop 269138");
+                Auth = ASM.AutenticacionCedula(usuario, clave, textBox1.Text, "Droog ethereal develop 269138");
                 if (Auth.Tables[2].Rows.Count > 0)
                 {
                     Cajero cajero = new Cajero();
@@ -61,7 +60,7 @@ namespace AplicacionCaja
             }
             else
             {
-                MessageBox.Show("El Pin debe tener solo numeros y 4 digitos");
+                MessageBox.Show("La cedula debe tener 11 digitos, solo numero");
                 textBox1.Text = "";
             }
         }

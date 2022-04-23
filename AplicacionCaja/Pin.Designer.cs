@@ -68,11 +68,11 @@ namespace AplicacionCaja
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(79, 18);
+            this.label2.Location = new System.Drawing.Point(22, 18);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(140, 24);
+            this.label2.Size = new System.Drawing.Size(173, 24);
             this.label2.TabIndex = 7;
-            this.label2.Text = "Ingrese su Pin: ";
+            this.label2.Text = "Ingrese su Cedula: ";
             this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // button2
@@ -103,7 +103,7 @@ namespace AplicacionCaja
             this.Controls.Add(this.label2);
             this.MaximizeBox = false;
             this.Name = "Pin";
-            this.Text = "Pin";
+            this.Text = "Cedula";
             this.Load += new System.EventHandler(this.Pin_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
